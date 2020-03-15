@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TNGA新世代造車工藝</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+        }
+        /* TOYOTA 導航欄 */
+        .nav-TOYOTA {
+            background-color: #000;
+            text-align: center;
+            height: 70px;
+        }
+
+        .nav-TOYOTA>a {
+            display: inline-block;
+            width: 184px;
+            line-height: 30px;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 15px;
+            vertical-align: middle;
+            padding: 20px 0 20px;
+            border-bottom: 3px solid;
+            font-family: Helvetica, Verdana, Arial, "\5FAE\8EDF\6B63\9ED1\9AD4", "Microsoft JhengHei", "\5137\9ED1 Pro", "LiHei Pro", sans-serif;
+        }
+
+        .nav-TOYOTA>a:hover {
+            border-bottom: 3px solid #ff0000;
+        }
+        /* advantage 導航欄 */
+        .advantage {
+            /* background-color: lightpink; */
+            width: 960px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .title {
+            text-align: center;
+            margin: 50px 0;
+            font-size: 40px;
+            line-height: 40px;
+            font-weight: bold;
+            font-family: Helvetica, Verdana, Arial, "\5FAE\8EDF\6B63\9ED1\9AD4", "Microsoft JhengHei", "\5137\9ED1 Pro", "LiHei Pro", sans-serif;
+        }
+
+        .title::after {
+            content: '';
+            display: block;
+            width: 38px;
+            height: 4px;
+            margin: 18px auto 0;
+            background-color: #000000;
+        }
+
+        .nav-TNGA {
+            width: 100%;
+            text-align: center;
+            display: flex;
+        }
+
+        .nav-TNGA>a {
+            font-size: 18px;
+            display: inline-block;
+            text-decoration: none;
+            color: #000;
+            margin: 0 5px 75px;
+            border: 0.5px dotted #000;
+            width: 100%;
+            height: 36px;
+            line-height: 36px;
+            vertical-align: center;
+            border-bottom: 2px solid #d00;
+            position: relative;
+
+        }
+
+        .nav-TNGA>a:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 0;
+            opacity: 1;
+            background-color: #d00;
+            transition: .3s;
+        }
+
+        .nav-TNGA>a:hover::before {
+            opacity: 1;
+            height: 100%;
+            z-index: -2;
+        }
+
+        /* mix1*/
+        .mix01 {
+            /* background-color: paleturquoise; */
+            width: 100%;
+            /* margin: 75px auto 0; */
+            height: 885px;
+            text-align: center;
+            position: relative;
+        }
+
+        .car1 {
+            position: absolute;
+            left: 180px;
+            top: 135px;
+            z-index: 1;
+        }
+
+        .icon1 {
+            position: absolute;
+            right: 75px;
+            top: 335px;
+            z-index: 2;
+        }
+
+        .info1 {
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 2;
+        }
+
+        .intorduce1 {
+            position: absolute;
+            top: 535px;
+            left: 50px;
+            z-index: 2;
+        }
+
+        .mix01>div {
+            position: absolute;
+            right: 0;
+            top: 35px;
+            width: 439px;
+            height: 290px;
+            background-color: #eee;
+            z-index: 0;
+        }
+
+        /* mix2 */
+        .mix02 {
+            /* background-color: palegoldenrod; */
+            width: 100%;
+            height: 885px;
+            /* margin: 75px auto 0; */
+            height: 900px;
+            text-align: center;
+            position: relative;
+        }
+
+        .car2 {
+            position: absolute;
+            top: 135px;
+            left: 10px;
+            z-index: 1;
+        }
+
+        .icon2 {
+            position: absolute;
+            left: 0;
+            bottom: 670px;
+            z-index: 2;
+        }
+
+        .info2 {
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 2;
+        }
+
+        .introduce2 {
+            position: absolute;
+            top: 530px;
+            right: 0;
+            z-index: 2;
+        }
+
+        .mix02>div {
+            position: absolute;
+            right: 170px;
+            top: 50px;
+            width: 518px;
+            height: 413px;
+            background-color: #eee;
+            z-index: 0;
+        }
+
+         /* mix03*/
+         .mix03 {
+            /* background-color:steelblue; */
+            width: 100%;
+            /* margin: 75px auto 0; */
+            height: 885px;
+            text-align: center;
+            position: relative;
+        }
+
+        .car3 {
+            position: absolute;
+            left: 180px;
+            top: 135px;
+            z-index: 1;
+        }
+
+        .icon3 {
+            position: absolute;
+            right: 75px;
+            top: 335px;
+            z-index: 2;
+        }
+
+        .info3 {
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 2;
+        }
+        .introduce3{
+            position: absolute;
+            top: 535px;
+            left: 50px;
+            z-index: 2;          
+        }
+
+        .mix03>div {
+            position: absolute;
+            right: 0;
+            top: 35px;
+            width: 439px;
+            height: 290px;
+            background-color: #eee;
+            z-index: 0;
+        }
+
+        /* mix4 */
+        .mix04 {
+            /* background-color: palegoldenrod; */
+            width: 100%;
+            height: 885px;
+            /* margin: 75px auto 0; */
+            text-align: center;
+            position: relative;
+        }
+
+        .car4 {
+            position: absolute;
+            top: 135px;
+            left: 10px;
+            z-index: 1;
+        }
+
+        .icon4 {
+            position: absolute;
+            left: 0;
+            bottom: 670px;
+            z-index: 2;
+        }
+
+        .info4 {
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 2;
+        }
+
+        .introduce4{
+            position: absolute;
+            top: 530px;
+            right: 0;
+            z-index: 2;
+        }
+
+        .mix04>div {
+            position: absolute;
+            right: 170px;
+            top: 50px;
+            width: 518px;
+            height: 413px;
+            background-color: #eee;
+            z-index: 0;
+        }
+
+         /* mix05*/
+         .mix05 {
+            /* background-color:steelblue; */
+            width: 100%;
+            /* margin: 75px auto 0; */
+            height: 885px;
+            text-align: center;
+            position: relative;
+        }
+
+        .car5 {
+            position: absolute;
+            left: 180px;
+            top: 135px;
+            z-index: 1;
+        }
+
+        .icon5 {
+            position: absolute;
+            right: 75px;
+            top: 335px;
+            z-index: 2;
+        }
+
+        .info5 {
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 2;
+        }
+        .introduce5{
+            position: absolute;
+            top: 535px;
+            left: 50px;
+            z-index: 2;          
+        }
+
+        .mix05>div {
+            position: absolute;
+            right: 0;
+            top: 35px;
+            width: 439px;
+            height: 290px;
+            background-color: #eee;
+            z-index: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <nav class="nav-TOYOTA">
+            <a href="">核心理念</a>
+            <a href="">五大優勢</a>
+            <a href="">46 THINGS</a>
+            <a href="">影片演示</a>
+            <a href="">搭載車款</a>
+        </nav>
+    </div>
+
+    <div class="advantage">
+        <h1 class="title">五大優勢</h1>
+        <div>
+            <nav class="nav-TNGA">
+                <a href="#">操控樂趣</a>
+                <a href="#">安全守護</a>
+                <a href="#">乘坐舒適</a>
+                <a href="#">以人為本</a>
+                <a href="#">引以為傲</a>
+            </nav>
+        </div>
+
+        <div class="mix01">
+            <img class="car1" src="images/asset 55.png" alt="">
+            <img class="icon1" src="images/asset 56.png" alt="">
+            <img class="info1" src="images/asset 57.png" alt="">
+            <img class="intorduce1" src="images/asset 58.png" alt="">
+            <div></div>
+        </div>
+
+        <div class="mix02">
+            <img class="car2" src="images/asset 59.png" alt="">
+            <img class="icon2" src="images/asset 56.png" alt="">
+            <img class="info2" src="images/asset 60.png" alt="">
+            <img class="introduce2" src="images/asset 61.png" alt="">
+            <div></div>
+        </div>
+
+        <div class="mix03">
+            <img class="car3" src="images/asset 62.png" alt="">
+            <img class="icon3" src="images/asset 56.png" alt="">
+            <img class="info3" src="images/asset 63.png" alt="">
+            <img class="introduce3" src="images/asset 64.png" alt="">
+            <div></div>
+        </div>
+
+        <div class="mix04">
+            <img class="car4" src="images/asset 65.png" alt="">
+            <img class="icon4" src="images/asset 56.png" alt="">
+            <img class="info4" src="images/asset 66.png" alt="">
+            <img class="introduce4" src="images/asset 67.png" alt="">
+            <div></div>
+        </div>
+
+
+        <div class="mix05">
+            <img class="car5" src="images/asset 68.png" alt="">
+            <img class="icon5" src="images/asset 56.png" alt="">
+            <img class="info5" src="images/asset 69.png" alt="">
+            <img class="introduce5" src="images/asset 70.png" alt="">
+            <div></div>
+        </div>
+    </div>
+
+</body>
+
+</html>
