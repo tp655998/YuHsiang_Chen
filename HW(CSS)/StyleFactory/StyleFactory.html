@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <!-- google font -->
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Reset.css">
+  <link rel="stylesheet" href="https://fontawesome.com/icons?d=gallery&q=user">
+  <title>Hello, world!</title>
+  <style>
+ 
+    h3, h4{
+      font-family: 'Work Sans', sans-serif;
+    }
+    a {
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: none;
+    }
+
+    header {
+      width: 100%;
+      /* background-color: yellow; */
+    }
+
+    .Main-Logo {
+      /* background-color: burlywood; */
+      justify-items: center;
+      margin: 0 90px;
+    }
+
+    .Main-Logo .logo {
+      margin: 40px auto 40px auto;
+    }
+
+    .breadcrumb {
+      /* background-color: crimson; */
+      /* background-color: brown; */
+      justify-content: center;
+    }
+
+    main {
+      padding: 0 8%;
+    }
+
+    section {
+      text-align: center;
+    }
+
+    .News-BestDeals {
+      background-image: url(images/greeting_image.jpg);
+      /* background-color: chocolate; */
+      padding: 100px 0 30px;
+    }
+
+    .News-BestDeals h3 {
+      font-size: 22px;
+      vertical-align: baseline;
+      line-height: 1em;
+      margin: 15px 0;
+      padding: 34px 0 0;
+    }
+
+    .News-BestDeals h1 {
+      font-size: 300px;
+      line-height: 300px;
+      min-height: 300px;
+      margin: 15px 0;
+    }
+
+    .News-BestDeals p {
+      font-size: 20px;
+      font-family: 'Work Sans', sans-serif;
+      margin: 10px 0 15px;
+    }
+
+    .show-case {
+      /* background-color: yellowgreen; */
+      justify-content: center;
+      text-align: center;
+      margin: auto;
+    }
+
+    .categories {
+      text-align: center;
+    }
+
+    footer {
+      font-family: 'Lato', sans-serif;
+      font-size: 20px;
+    }
+    .Special-Offer{
+      background-color: #e7f5f7;
+      padding: 80px 0 107px;
+    }
+    .Special-Offer h3{
+      font: 24px bolder #181a1f;
+      font-family: 'Work Sans', sans-serif;
+      margin: 15px 0;
+    }
+    .Special-Offer h4{
+      font: 24px #181a1f;
+      font-family: 'Work Sans', sans-serif;
+      margin: 15px 0;
+    } 
+    .Icon-Box {
+      display: flex;
+      justify-content: center;
+      margin: 10px;
+    }
+
+    .icon {
+      border: 1px solid;
+      border-radius: 50%;
+      padding: 15px;
+    }
+
+    .mapouter {
+      position: relative;
+      text-align: right;
+      width: 100%;
+    }
+
+    .gmap_canvas {
+      overflow: hidden;
+      background: none !important;
+      height: 0;
+      width: 100%;
+      padding-bottom: 20%;
+    }
+
+    .info {
+      display: flex;
+      background-color: #181a1f;
+      padding: 78px 0 125px;
+      line-height: 45px;
+      text-transform: capitalize;
+      font-weight: lighter;
+      color: #D3D3D3;
+      font-family: 'Lato', sans-serif;
+    }
+
+    .info div{
+      text-align: left;
+      padding: 30px;
+      justify-content: space-around;
+    }
+    .info div ol{
+      text-align: left;
+    }
+    .info div ol li a{
+      color: #D3D3D3;
+      font-family: 'Lato', sans-serif;
+    }
+
+    .info img {
+      margin: 15px 0 10px;
+    }
+
+    .info h3 {
+      font: bold 20px;
+      font-family: 'Work Sans', sans-serif;
+      color: #ffffff;
+      margin: 15px 0 26px;
+      line-height: normal;
+      font-weight: bolder;
+    }
+
+
+
+    .info a:hover {
+      color: #7dd0dc;
+    }
+
+    .copyright {
+      background-color: #222326;
+      color: #D3D3D3;
+      padding: 20px 45px;
+    }
+
+    .copyright p {
+      /* margin: 20px 45px; */
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+        aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#">Navbar</a>
+      <!-- nav -->
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+        <!-- 搜尋 -->
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+    <!-- logo -->
+    <div class="Main-Logo">
+      <img src="images/logo.jpg" alt="logo" class="logo d-block">
+    </div>
+    <!-- 麵包屑 -->
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page"><a href="#">HOME</a></li>
+        <li class="breadcrumb-item"><a href="#">PRODUCTS</a></li>
+        <li class="breadcrumb-item"><a href="">BLOG</a></li>
+        <li class="breadcrumb-item"><a href="">SALE</a></li>
+        <li class="breadcrumb-item"><a href="">ABOUT US</a></li>
+        <li class="breadcrumb-item"><a href="">CONTACT US</a></li>
+      </ol>
+    </nav>
+    <div class="News-BestDeals w-100">
+      <h3>JOIN OUR DISCOUNT CLUB & SAVE 25% ON EVERYTHING!</h3>
+      <h1>BEST DEALS</h1>
+      <p>We offer a broad assortment of the best and latest styles from the finest brands. Only at Style Factory, you
+        will find so many exclusive images, videos, customer reviews and expert tips to help you choose the perfect
+        styles and colors.</p>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="show-case row">
+      <div class="col-12 col-lg-4">
+        <h3>NEW ARRIVALS</h3>
+        <p>SEE OUR LATEST MUST-HAVES >></p>
+      </div>
+      <div class="col-12 col-lg-4">
+        <h3>WE LOVE</h3>
+        <p>CHECK OUT STYLISH FAVORITES >></p>
+      </div>
+      <div class="col-12 col-lg-4">
+        <h3>FREE SHOPPING</h3>
+        <p>ON ALL 2016 COLLECTION >></p>
+      </div>
+    </section>
+    <section class="News-Hair">
+      <img src="images/promo_block_img.jpg" alt="" class="w-100 d-block">
+    </section>
+
+    <section class="categories">
+      <h3>BROWSE OUR CATEGORIES</h3>
+      <div class="row">
+        <figure class="col-12 col-lg-3">
+          <img src="images/category1_c699b5ea-b75e-4185-9a8e-2a65b0fc3814_430x396_crop_top.jpg" alt=""
+            class="w-100 d-block">
+          <figcaption>
+            <h4>Men’s hair care</h4>
+            <a href="">7 products</a>
+          </figcaption>
+        </figure>
+        <figure class="col-12 col-lg-3">
+          <img src="images/category2_430x396_crop_top.jpg" alt="" class="w-100 d-block">
+          <figcaption>
+            <h4>Men’s hair care</h4>
+            <a href="">7 products</a>
+          </figcaption>
+        </figure>
+        <figure class="col-12 col-lg-3">
+          <img src="images/category3_430x396_crop_top.jpg" alt="" class="w-100 d-block">
+          <figcaption>
+            <h4>Men’s hair care</h4>
+            <a href="">7 products</a>
+          </figcaption>
+        </figure>
+        <figure class="col-12 col-lg-3">
+          <img src="images/category4_430x396_crop_top.jpg" alt="" class="w-100 d-block">
+          <figcaption>
+            <h4>Men’s hair care</h4>
+            <a href="">7 products</a>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="onsale">
+      <h3>PRODUCTS ON SALE</h3>
+      <div class="row">
+        <figure class="col-12 col-lg-3">
+          <img src="images/argan_oil_hair_mask_01_370x370_crop_top.jpg" alt="" class="w-100 d-block">
+          <figcaption>
+            <h4>Men’s hair care</h4>
+            <a href="">7 products</a>
+          </figcaption>
+        </figure>
+        <figure class="col-12 col-lg-3">
+          <img src="images/garnier_fructis_01_370x370_crop_top.jpg" alt="" class="w-100 d-block">
+          <figcaption>
+            <h4>Men’s hair care</h4>
+            <a href="">7 products</a>
+          </figcaption>
+        </figure>
+        <figure class="col-12 col-lg-3">
+          <img src="images/herbal_essences_01_370x370_crop_top.jpg" alt="" class="w-100 d-block">
+          <figcaption>
+            <h4>Men’s hair care</h4>
+            <a href="">7 products</a>
+          </figcaption>
+        </figure>
+        <figure class="col-12 col-lg-3">
+          <img src="images/l_oreal_paris_studio_line_1_370x370_crop_top.jpg" alt="" class="w-100 d-block">
+          <figcaption>
+            <h4>Men’s hair care</h4>
+            <a href="">7 products</a>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+    <section class="NEWS">
+      <h3>SEE WHAT'S NEW ON OUR BLOG</h3>
+      <div class="row">
+        <figure class="col-12 col-lg-4">
+          <span>14 JANUARY</span>
+          <p>Posted by David Braun 2 Comments</p>
+          <img src="images/blog3_a7f4371f-e5f2-46ae-a3c0-01ff3da3296e_536x272_crop_top.jpg" alt=""
+            class="w-100 d-block">
+          <figcaption>
+            <h4>Men’s hair care</h4>
+            <a href="">7 products</a>
+          </figcaption>
+        </figure>
+        <figure class="col-12 col-lg-4">
+          <span>14 JANUARY</span>
+          <p>Posted by David Braun 2 Comments</p>
+          <img src="images/blog2_536x272_crop_top.jpg" alt="" class="w-100 d-block">
+          <figcaption>
+            <h4>Men’s hair care</h4>
+            <a href="">7 products</a>
+          </figcaption>
+        </figure>
+        <figure class="col-12 col-lg-4">
+          <span>14 JANUARY</span>
+          <p>Posted by David Braun 2 Comments</p>
+          <img src="images/blog4_536x272_crop_top.jpg" alt="" class="w-100 d-block">
+          <figcaption>
+            <h4>Men’s hair care</h4>
+            <a href="">7 products</a>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="featured">
+      <h3>PRODUCTS ON SALE</h3>
+      <div class="row">
+        <figure class="col-12 col-lg-3">
+          <img src="images/infiniti_pro_by_conair_hair_designer_3_in_1_styling_system_02_370x370_crop_top.jpg" alt=""
+            class="w-100 d-block">
+          <figcaption>
+            <h4>Men’s hair care</h4>
+            <a href="">7 products</a>
+          </figcaption>
+        </figure>
+        <figure class="col-12 col-lg-3">
+          <img src="images/instyler_ionic_styler_pro_ceramic_flat_iron_1_370x370_crop_top.jpg" alt=""
+            class="w-100 d-block">
+          <figcaption>
+            <h4>Men’s hair care</h4>
+            <a href="">7 products</a>
+          </figcaption>
+        </figure>
+        <figure class="col-12 col-lg-3">
+          <img src="images/jose_eber_wet_dry_flat_iron_straightener_01_370x370_crop_top.jpg" alt=""
+            class="w-100 d-block">
+          <figcaption>
+            <h4>Men’s hair care</h4>
+            <a href="">7 products</a>
+          </figcaption>
+        </figure>
+        <figure class="col-12 col-lg-3">
+          <img src="images/glide_thru_detangler_hair_comb_or_brush_01_370x370_crop_top.jpg" alt=""
+            class="w-100 d-block">
+          <figcaption>
+            <h4>Men’s hair care</h4>
+            <a href="">7 products</a>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <h3>FOLLOW US ON INSTAGRAM</h3>
+    <section class="Special-Offer">
+      <h3>GET OUR SPECIAL OFFERS</h3>
+      <h4>AND THE ULTIMATE HAIR CARE TIPS & TRICKS!</h4>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+      <h3>LET'S STAY CONNECTED</h3>
+      <div class="Icon-Box">
+        <div class="icon"><i class="fab fa-twitter"></i></div>
+        <div class="icon"><i class="fab fa-facebook"></i></div>
+        <div class="icon"><i class="fab fa-youtube"></i></div>
+        <div class="icon"><i class="fab fa-pinterest"></i></div>
+        <div class="icon"><i class="fab fa-google-plus"></i></div>
+      </div>
+    </section>
+
+    <section class="mapouter">
+      <div class="gmap_canvas embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item"
+          id="gmap_canvas"
+          src="https://maps.google.com/maps?q=4578%20Marmora%20Road%2C%20Glasgow%20D04%2089GR&t=&z=13&ie=UTF8&iwloc=&output=embed"
+          frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+        <a href="https://www.embedgooglemap.net/blog/divi-discount-code-elegant-themes-coupon/">elegant themes</a>
+      </div>
+    </section>
+
+    <section class="info">
+      <div class="col-12 col-lg-3">
+        <img src="images/footer_logo.jpg" alt="">
+        <p>This web store was originally launched in 2002 and was then titled the Style Factory. This name was a perfect
+          fit then, simply because we’ve always had our focus on our hair care & hair treatment products lineup.</p>
+      </div>
+      <div class="col-12 col-lg-3">
+        <h3>CATEGORIES</h3>
+        <ol class="categories">
+          <li><a href="#">Hair Styling</a> </li>
+          <li><a href="#">Men’s Hair Care</a> </li>
+          <li><a href="#">Hair Care For Kids</a> </li>
+          <li><a href="#">Hair Health Treatment</a> </li>
+          <li><a href="#">Featured Products</a> </li>
+          <li><a href="#">Sale</a> </li>
+        </ol>
+      </div>
+      <div class="col-12 col-lg-3">
+        <h3>MENU</h3>
+        <ol class="menu">
+          <li><a href="#">Home</a> </li>
+          <li><a href="#">Catalog</a> </li>
+          <li><a href="#">About Us</a> </li>
+          <li><a href="#">Contact Us</a> </li>
+          <li><a href="#">Wishlist</a> </li>
+          <li><a href="#">Sitemap</a> </li>
+        </ol>
+      </div>
+      <div class="col-12 col-lg-3">
+        <h3>CONTACT <br> INFORMATION</h3>
+        <ol class="contact">
+          <li>4578 Marmora Road,</li>
+          <li>Glasgow D04 89GR</li>
+          <li>1(234) 567-9842</li>
+          <li><a href="mailto:info@demolink.org">info@demolink.org</a></li>
+        </ol>
+      </div>
+    </section>
+    <section class="copyright">
+      <p>© 2020 Style Factory. All rights reserved. Powered by Shopify</p>
+    </section>
+  </footer>
+
+  <!-- icon -->
+  <script src="https://kit.fontawesome.com/95fe5e2d81.js" crossorigin="anonymous"></script>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

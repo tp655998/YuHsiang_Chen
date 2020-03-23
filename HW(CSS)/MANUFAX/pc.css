@@ -1,0 +1,482 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: "Roboto", sans-serif;
+}
+.warp{
+    width: 100%;
+}
+.AddressAndPhones{
+    width: 100%;
+    background-color: #272727;
+    padding: 25px 0;
+    color: #fff;
+    text-align: center;
+    font-size: 15px;
+}
+.AddressAndPhones p{
+    margin-bottom: 25px;
+}
+.AddressAndPhones a{
+    color: #fff;
+    margin: 0 5px;
+}
+.OtherIcon a:hover{
+    color: #2ac5f4;
+}
+.LogoAndLink{
+    width: 100%;
+    position: relative;
+    display: flex;
+}
+.LogoAndLink img{
+    width: 100%;
+    vertical-align:top;
+}
+.menu-btn{
+    display: none;
+}
+.LogoAndLink-text{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.5);
+}
+.LogoBox{
+        width: 100%;
+}
+nav{
+    text-align: center;
+    position: absolute;
+    top: 75px;
+    right: 80px;
+}
+nav a
+{
+    margin: 0 20px;
+    text-decoration: none;
+    color: #fff;
+}
+#menu-control{
+    position: absolute;
+    left: -100px;
+}
+.SeeProjects{
+    text-align: center;
+    color: #fff;
+}
+.SeeProjects a{
+    padding: 22px 39px;
+    color: #fff;
+    background-color: #2ac5f4;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.SeeProjects a:hover
+{
+    background-color: #000;
+}
+.OurServiceTitle{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 15PX;
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+.OurServiceTitle h1{
+    margin-left: -60px;
+}
+.OurServiceTitle span{
+    position: relative;
+    height: 3px;
+    width: 60px;
+    background-color: #2ac5f4;
+    bottom: 20px;
+    left: 85px;
+}
+.OurServices{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.OurServices i{
+    margin:  20px;
+    color: #2ac5f4;
+}
+.OurServices h2{
+    margin: 10px 0;
+}
+.SerItem{
+    display: flex;
+}
+.Ourhistory{
+    margin-top: 100px;
+    margin: 50px 80px;
+    display: flex;
+}
+.HistoryTxt a{
+    color: #fff;
+    background-color: #397dfc;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 20px;
+    position: relative;
+    bottom: -40px;
+    left: 20px;
+}
+.HistoryTxt a:hover{
+    background-color: #000;
+}
+.porjectPics{
+    margin-top: 150px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.porjectPicsItem{
+    position: relative;
+}
+.porjectPicsItem img{
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    vertical-align: top;
+}
+.porjectPicsItem h3{
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 3;
+    position: absolute;
+    color: #fff;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+.RecentNewsTitle{
+    padding: 30px;
+    text-align: center;
+}
+.RecentNews{
+        display: flex;
+        width: 100%;
+}
+.NewsItems img{
+    width: 100%;
+    margin-bottom: 20px;
+}
+.post-inf{
+    text-decoration: none;
+    color: #2ac5f4;
+    margin-left: 5px;
+}
+.post-inf:hover{
+    color: #000;
+}
+.post-meta{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    display: flex;
+}
+.news-title{
+    text-decoration: none;
+    color: #000;
+}
+.news-title:hover{
+    color: #2ac5f4;
+}
+.see-all{
+    text-align: center;
+    margin: 50px;
+}
+.see-all a{
+    text-decoration: none;
+    background-color: #389ffc;
+    color: #fff;
+    font-size: 16px;
+    padding: 15px;
+    border-radius: 5px;
+}
+.see-all a:hover{
+    background-color: #000;
+}
+@media screen and (max-width: 767px) {
+    .LogoAndLink{
+        width: 100%;
+    }
+    .LogoBox img{
+       max-width: 258px;
+    }
+    .LogoBox{
+        width: 100%;
+        text-align: center;
+    }
+    .mainpic{
+        width: 100%;
+        min-height: 700px;
+    }
+    .LogoBox img{
+        margin: 20px;
+    }
+    nav{
+        display: none;
+        position: absolute;
+        text-align:left;
+        background-color: #3b3d42;
+        left: 0;
+        top: -150px;
+        width: 100%;
+    }
+    nav a{
+        display: block;
+        padding: 10px 20px;
+    }
+    input:checked~nav{
+        display: block;
+    }
+    .menu-btn{
+        display: block;
+        width: 40px;
+        height: 40px;
+        position: relative;
+    }
+    .menu-btn i{
+        position: absolute;
+        color: #fff;
+        top: 20px;
+        left: 20px;
+        margin: auto;
+    }
+    .SeeProjects h1{
+        font-size: 24px;
+        margin-top: 80px;
+    }
+    .SeeProjects h5{
+        font-size: 18px;
+        margin-top: 20px;
+    }
+    .SeeProjects a{
+        position: relative;
+        top: 60px;
+    }
+    .OurServices{
+        width: 100%;
+    }
+    .OurServices i{
+        font-size: 45px;
+    }
+    .OurServices h2{
+        font-size: 16px;
+    }
+    .OurServices p{
+        font-size: 16px;
+    }
+    .SerItem{
+        justify-content: center;
+        text-align: center;
+        flex-wrap: wrap;
+        width: 96%;
+        margin: 20px;
+    }
+    .OurServices{
+        flex-wrap: wrap;
+    }
+    .Ourhistory{
+        flex-wrap: wrap;
+    }
+    .Ourhistory img{
+        width: 100%;
+        order: -1;
+    }
+    .HistoryTxt h2{
+        font-size: 30px;
+        margin: 20px;
+    }
+    .HistoryTxt h3{
+        font-size:15px;
+        margin: 20px;
+    }
+    .HistoryTxt p{
+        font-size: 18px;
+        margin: 20px;
+    }
+    .porjectPicsItem{
+        width: 100%;
+    }
+    .RecentNews{
+        flex-wrap: wrap;
+    }
+    .NewsItems{
+        width: 100%;
+        margin: 20px;
+    }
+}
+@media screen and (min-width: 768px) {
+    .ConInfText{
+        width: 100%;
+        display: flex;
+    }
+
+    .AddressAndPhones p{
+        width: 47.3958333333333%;
+        margin: 1.47492625368732%;
+    }
+
+    .OtherIcon{
+        width: 100%;
+    }
+    .mainpic{
+        width: 100%;
+        min-height: 900px;
+    }
+    .LogoBox img{
+        margin: 20px;
+        max-width: 258px;
+    }
+    nav{
+        margin-top: 50px;
+    }
+    .SeeProjects h1{
+        font-size: 60px;
+        margin-top: 350px;
+    }
+    .SeeProjects h5{
+        font-size: 22px;
+        margin-top: 20px;
+    }
+    .SeeProjects a{
+        position: relative;
+        top: 60px;
+    }
+    .OurServices i{
+        font-size: 45px;
+    }
+    .OurServices h2{
+        font-size: 16px;
+    }
+    .OurServices p{
+        font-size: 16px;
+    }
+    .SerItem{
+        width: 28.125%;
+        margin: 20px 2.60416666666667% ;
+    }
+    .Ourhistory{
+        flex-wrap: wrap;
+    }
+    .Ourhistory img{
+        width: 100%;
+        order: -1;
+    }
+    .HistoryTxt h2{
+        font-size: 30px;
+        margin: 20px;
+    }
+    .HistoryTxt h3{
+        font-size:20px;
+        margin: 20px;
+    }
+    .HistoryTxt p{
+        font-size: 18px;
+        margin: 20px;
+    }
+    .porjectPicsItem{
+        width: 50%;
+    }
+    .RecentNews{
+        flex-wrap: wrap;
+    }
+    .NewsItems{
+        width: 100%;
+        margin: 20px;
+    }
+}
+@media screen and (min-width: 1025px) {
+    .AddressAndPhones{
+        padding-top: 10px;
+        height: 20px;
+        display: flex;
+    }
+
+    .ConInfText{
+        width: 80%;
+        display: flex;
+    }
+    .AddressAndPhones p{
+        width: 420px;
+        margin-right: -80px;
+    }
+    .OtherIcon{
+        margin-top: 10px;
+        padding-right: 75px;
+        text-align: right;
+    }
+    .LogoBox img{
+        margin: 20px;
+        max-width: 340px;
+    }
+    nav{
+        top: 15px;
+        left: 350px;
+    }
+    .SeeProjects h1{
+        font-size: 110px;
+        margin-top: 200px;
+    }
+    .SeeProjects h5{
+        font-size: 30px;
+        margin-top: 20px;
+    }
+    .SeeProjects a{
+        position: relative;
+        top: 60px;
+    }
+    .OurServices i{
+        font-size: 70px;
+    }
+    .OurServices h2{
+        font-size: 18px;
+    }
+    .OurServices p{
+        font-size: 18px;
+    }
+    .SerItem{
+        width: 29.4308943089431%;
+        margin: 20px 1.95121951219512% ;
+    }
+    .Ourhistory{
+        flex-wrap: nowrap;
+    }
+    .Ourhistory img{
+        order: 2;
+    }
+    .HistoryTxt h2{
+        font-size: 30px;
+        margin: 20px;
+    }
+    .HistoryTxt h3{
+        font-size:20px;
+        margin: 20px;
+    }
+    .HistoryTxt p{
+        font-size: 18px;
+        margin: 20px;
+    }
+    .porjectPicsItem{
+        width: 25%;
+    }
+    .NewsItems{
+        width: 31.3821138211382%;
+        margin: 10px 0.975609756097561%;
+    }
+    .NewsItems img{
+        width: 100%;
+    }
+}
