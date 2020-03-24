@@ -2,6 +2,16 @@
 <html lang="en">
 
 <head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161722066-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-161722066-1');
+  </script>
+
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,10 +25,11 @@
   <link rel="stylesheet" href="https://fontawesome.com/icons?d=gallery&q=user">
   <title>StyleFactory</title>
   <style>
- 
-    h3, h4{
+    h3,
+    h4 {
       font-family: 'Work Sans', sans-serif;
     }
+
     a {
       text-decoration: none;
     }
@@ -44,8 +55,50 @@
 
     .breadcrumb {
       /* background-color: crimson; */
-      /* background-color: brown; */
+      background-color: #ffffff;
+      text-decoration: none;
+      color: #181a1f;
       justify-content: center;
+    }
+
+    .breadcrumb .breadcrumb:hover {
+      text-decoration: none;
+      color: #181a1f;
+    }
+
+    .menu ul {
+      padding: 17px;
+      display: flex;
+      list-style: none;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    .menu {
+      background-color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      border-bottom: 1px solid rgb(201, 201, 201);
+      ;
+    }
+
+    .menu a {
+      margin: 0px 27px;
+      color: black;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .menu a:hover {
+      text-decoration: none;
+      color: coral;
+    }
+
+    .menu li+li::before {
+      content: '/';
+      color: rgb(182, 182, 182);
+      font-weight: 700;
     }
 
     main {
@@ -57,30 +110,87 @@
     }
 
     .News-BestDeals {
+      color: #ffffff;
+
       background-image: url(images/greeting_image.jpg);
       /* background-color: chocolate; */
-      padding: 100px 0 30px;
+      /* padding: 100px 0 30px; */
+      background-size: cover;
+      background-position: center;
+      /* 1920 x 946 */
+      /* height: 946px; */
+      /* padding-bottom: 49.27%; */
+
     }
 
-    .News-BestDeals h3 {
-      font-size: 22px;
+    .News-BestDeals .row .main-txt {
+      /* background-color: brown; */
+      /* width: 100%; */
+      height: 100%;
+      /* margin-right: auto; */
+      /* background-color: brown; */
+      justify-items: right;
+      padding-right: 5%;
+      padding-left: 10%;
+      /* padding: 15% ; */
+      padding-top: 10%;
+
+
+    }
+
+    .News-BestDeals .row .main-txt h3 {
+      width: 100%;
+      /* display: flex; */
+      flex-wrap: wrap;
+      font-size: 30px;
       vertical-align: baseline;
       line-height: 1em;
-      margin: 15px 0;
-      padding: 34px 0 0;
+      /* margin: 300px 20px; */
+      /* padding: 34px 0 0; */
+      text-align: right;
+      padding-top: 10%;
+      border-top: 1px solid #ffffff;
+      position: relative;
     }
 
-    .News-BestDeals h1 {
-      font-size: 300px;
-      line-height: 300px;
-      min-height: 300px;
-      margin: 15px 0;
+    .News-BestDeals .row .main-txt h3::before {
+      content: '';
+      width: 50px;
+      height: 4px;
+      background-color: white;
+      position: absolute;
+      top: 0;
+      left: 0;
     }
+
+    .News-BestDeals .row .main-txt h3 strong {
+      /* background-color: #7dd0dc; */
+      font: bolder;
+      font-weight: 800;
+    }
+
+    .News-BestDeals .row .sub-txt {
+      width: 100%;
+      height: 100%;
+      /* margin-right: auto; */
+      /* background-color: cadetblue; */
+      line-height: 1.5;
+      justify-items: left;
+      padding-right: 5%;
+      padding-left: 10%;
+      padding-top: 45%;
+      padding-bottom: 5%;
+    }
+
+
+
+
 
     .News-BestDeals p {
+      width: 100%;
       font-size: 20px;
       font-family: 'Work Sans', sans-serif;
-      margin: 10px 0 15px;
+      /* margin: 10px 0 15px; */
     }
 
     .show-case {
@@ -98,20 +208,24 @@
       font-family: 'Lato', sans-serif;
       font-size: 20px;
     }
-    .Special-Offer{
+
+    .Special-Offer {
       background-color: #e7f5f7;
       padding: 80px 0 107px;
     }
-    .Special-Offer h3{
+
+    .Special-Offer h3 {
       font: 24px bolder #181a1f;
       font-family: 'Work Sans', sans-serif;
       margin: 15px 0;
     }
-    .Special-Offer h4{
+
+    .Special-Offer h4 {
       font: 24px #181a1f;
       font-family: 'Work Sans', sans-serif;
       margin: 15px 0;
-    } 
+    }
+
     .Icon-Box {
       display: flex;
       justify-content: center;
@@ -149,15 +263,17 @@
       font-family: 'Lato', sans-serif;
     }
 
-    .info div{
+    .info div {
       text-align: left;
       padding: 30px;
       justify-content: space-around;
     }
-    .info div ol{
+
+    .info div ol {
       text-align: left;
     }
-    .info div ol li a{
+
+    .info div ol li a {
       color: #D3D3D3;
       font-family: 'Lato', sans-serif;
     }
@@ -187,9 +303,7 @@
       padding: 20px 45px;
     }
 
-    .copyright p {
-      /* margin: 20px 45px; */
-    }
+
   </style>
 </head>
 
@@ -237,11 +351,20 @@
       </ol>
     </nav>
     <div class="News-BestDeals w-100">
-      <h3>JOIN OUR DISCOUNT CLUB & SAVE 25% ON EVERYTHING!</h3>
-      <h1>BEST DEALS</h1>
-      <p>We offer a broad assortment of the best and latest styles from the finest brands. Only at Style Factory, you
-        will find so many exclusive images, videos, customer reviews and expert tips to help you choose the perfect
-        styles and colors.</p>
+      <div class="row">
+        <div class="main-txt col-12 col-lg-6">
+          <h3>JOIN OUR <strong>DISCOUNT</strong> CLUB & <strong>SAVE 25%</strong> ON EVERYTHING!</h3>
+        </div>
+        <div class="sub-txt col-12 col-lg-6">
+          <p>We offer a broad assortment of the best and latest styles from the finest brands. Only at Style Factory,
+            you
+            will find so many exclusive images, videos, customer reviews and expert tips to help you choose the perfect
+            styles and colors.</p>
+        </div>
+      </div>
+
+
+
     </div>
   </header>
 
@@ -490,6 +613,9 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161722066-1"></script>
+
 </body>
 
 </html>
