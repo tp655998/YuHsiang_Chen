@@ -21,12 +21,13 @@
   <!-- google font -->
   <link href="https://fonts.googleapis.com/css?family=Work+Sans&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Six+Caps&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="Reset.css">
-  <link rel="stylesheet" href="https://fontawesome.com/icons?d=gallery&q=user">
   <title>StyleFactory</title>
   <style>
     h3,
-    h4 {
+    h4,
+    p {
       font-family: 'Work Sans', sans-serif;
     }
 
@@ -42,62 +43,72 @@
       width: 100%;
       /* background-color: yellow; */
     }
+    .Customer-Function{
+      background-color: #d4bc85;
+      width: 100%;
+      padding: 5px 10%;
+    }    
+    .dropdownMenu-btn{
+      display: inline-block;
+      /* background-color: #D3D3D3; */
+      font-size: 20px;
+      margin: 15px;
+      cursor: pointer;
+    }
+    .Customer-Function .row .dropdown {
+      /* width: 100%; */
+      /* display: block; */
+      /* width: 40px;
+      height: 40px; */
+      /* position: relative; */
+      /* background-color: #fff; */
+      /* padding: auto; */
+      
+    }
+
+
 
     .Main-Logo {
       /* background-color: burlywood; */
       justify-items: center;
-      margin: 0 90px;
+      margin: 0 30px;
     }
 
     .Main-Logo .logo {
-      margin: 40px auto 40px auto;
+      margin: 40px auto 10px auto;
     }
+
 
     .breadcrumb {
-      /* background-color: crimson; */
       background-color: #ffffff;
-      text-decoration: none;
-      color: #181a1f;
-      justify-content: center;
-    }
-
-    .breadcrumb .breadcrumb:hover {
-      text-decoration: none;
-      color: #181a1f;
-    }
-
-    .menu ul {
-      padding: 17px;
-      display: flex;
-      list-style: none;
-      justify-content: center;
-      margin-top: 10px;
-    }
-
-    .menu {
-      background-color: white;
       position: sticky;
       top: 0;
       z-index: 1;
-      border-bottom: 1px solid rgb(201, 201, 201);
-      ;
+      justify-content: center;
     }
 
-    .menu a {
+    .breadcrumb ul {
+      padding: 17px;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .breadcrumb a {
       margin: 0px 27px;
       color: black;
       font-weight: 600;
-      font-size: 14px;
+      font-size: 16px;
+      font-family: 'Work Sans', sans-serif;
     }
 
-    .menu a:hover {
+    .breadcrumb a:hover {
       text-decoration: none;
-      color: coral;
+      color: #ffa396;
     }
 
-    .menu li+li::before {
+    .breadcrumb li+li::before {
       content: '/';
-      color: rgb(182, 182, 182);
+      color: #90a4ae;
       font-weight: 700;
     }
 
@@ -111,42 +122,28 @@
 
     .News-BestDeals {
       color: #ffffff;
-
       background-image: url(images/greeting_image.jpg);
-      /* background-color: chocolate; */
-      /* padding: 100px 0 30px; */
       background-size: cover;
       background-position: center;
       /* 1920 x 946 */
       /* height: 946px; */
       /* padding-bottom: 49.27%; */
-
     }
 
     .News-BestDeals .row .main-txt {
-      /* background-color: brown; */
-      /* width: 100%; */
       height: 100%;
-      /* margin-right: auto; */
-      /* background-color: brown; */
       justify-items: right;
       padding-right: 5%;
       padding-left: 10%;
-      /* padding: 15% ; */
       padding-top: 10%;
-
-
     }
 
     .News-BestDeals .row .main-txt h3 {
       width: 100%;
-      /* display: flex; */
       flex-wrap: wrap;
       font-size: 30px;
       vertical-align: baseline;
       line-height: 1em;
-      /* margin: 300px 20px; */
-      /* padding: 34px 0 0; */
       text-align: right;
       padding-top: 10%;
       border-top: 1px solid #ffffff;
@@ -172,32 +169,139 @@
     .News-BestDeals .row .sub-txt {
       width: 100%;
       height: 100%;
-      /* margin-right: auto; */
-      /* background-color: cadetblue; */
+      font-size: 20px;
+      font-family: 'Work Sans', sans-serif;
       line-height: 1.5;
       justify-items: left;
       padding-right: 5%;
       padding-left: 10%;
       padding-top: 45%;
-      padding-bottom: 5%;
+
     }
 
+    .News-BestDeals .row .col-12:nth-child(2) {
+      /* opacity: 0; */
+    }
 
+    .News-BestDeals a {
+      width: 12%;
+      box-sizing: border-box;
+      display: block;
+      font-size: 18px;
+      color: black;
+      background-color: white;
+      padding: 2%;
+      margin: 0 44%;
+      transition: 0.7s;
 
+    }
 
+    .News-BestDeals a:hover {
+      color: white;
+      background-color: black;
+    }
 
-    .News-BestDeals p {
+    .Show-Case {
       width: 100%;
-      font-size: 20px;
-      font-family: 'Work Sans', sans-serif;
-      /* margin: 10px 0 15px; */
+      margin: auto;
+      padding: 100px 0;
     }
 
-    .show-case {
-      /* background-color: yellowgreen; */
-      justify-content: center;
+    .Show-Case a {
+      /* margin: 100px 20px 90px 20px; */
+      padding: 37px 0 35px;
       text-align: center;
+      height: 170px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: #181a1f;
+      border-bottom: 1px solid rgba(128, 128, 128, 0.432);
+    }
+
+    .Show-Case .row div {
+      padding: 0 50px;
+      transition: all 0.5s ease 0s;
+    }
+
+    .Show-Case .row div:hover {
+      transform: scale(1.1, 1.1);
+    }
+
+    .Show-Case .row .col-12.col-lg-4:nth-child(1) a {
+      position: relative;
+      border-top: 1px solid #7dd0dc;
+    }
+
+    .Show-Case .row .col-12:nth-child(1) a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
       margin: auto;
+      width: 50px;
+      height: 4px;
+      background-color: #7dd0dc;
+    }
+
+    .Show-Case .row .col-12.col-lg-4:nth-child(1) h3 {
+      margin-bottom: 30px;
+      font-family: 'Six Caps', sans-serif;
+      font-size: 50px;
+      letter-spacing: 0.05em;
+      color: #7dd0dc;
+    }
+
+    .Show-Case .row .col-12.col-lg-4:nth-child(2) a {
+      position: relative;
+      border-top: 1px solid #d4bc85;
+    }
+
+    .Show-Case .row .col-12.col-lg-4:nth-child(2) a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 50px;
+      height: 4px;
+      background-color: #d4bc85;
+
+    }
+
+    .Show-Case .row .col-12.col-lg-4:nth-child(2) h3 {
+      margin-bottom: 30px;
+      font-family: 'Six Caps', sans-serif;
+      font-size: 50px;
+      letter-spacing: 0.05em;
+      color: #d4bc85;
+    }
+
+    .Show-Case .row .col-12.col-lg-4:nth-child(3) a {
+      position: relative;
+      border-top: 1px solid #ffa396;
+    }
+
+    .Show-Case .row .col-12.col-lg-4:nth-child(3) a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 50px;
+      height: 4px;
+      background-color: #ffa396;
+    }
+
+    .Show-Case .row .col-12.col-lg-4:nth-child(3) h3 {
+      margin-bottom: 30px;
+      font-family: 'Six Caps', sans-serif;
+      font-size: 50px;
+      letter-spacing: 0.05em;
+      color: #ffa396;
     }
 
     .categories {
@@ -302,34 +406,27 @@
       color: #D3D3D3;
       padding: 20px 45px;
     }
-
-
   </style>
 </head>
 
 <body>
   <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
-        aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <a class="navbar-brand" href="#">Navbar</a>
-      <!-- nav -->
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-          </li>
-        </ul>
-        <!-- 搜尋 -->
-        <form class="form-inline my-2 my-lg-0">
+    <nav class="Customer-Function">
+      <div class="row justify-content-between d-flex w-100">
+        <div class="dropdown">
+          <div class="dropdownMenu-btn" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            <!-- <i class="fas fa-times"></i> -->
+            <i class="fas fa-bars"></i>
+          </div>
+          <div class="dropdown-menu">
+            <label class="dropdown-header">Currency</label>
+            <label class="dropdown-item" href="#">My Account</label>
+            <label class="dropdown-item" href="#">Wishlist</label>
+            <label class="dropdown-item" href="#">Checkout</label>
+          </div>
+        </div>
+        <form class="form-inline my-2 order-last">
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
@@ -340,15 +437,15 @@
       <img src="images/logo.jpg" alt="logo" class="logo d-block">
     </div>
     <!-- 麵包屑 -->
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item active" aria-current="page"><a href="#">HOME</a></li>
-        <li class="breadcrumb-item"><a href="#">PRODUCTS</a></li>
-        <li class="breadcrumb-item"><a href="">BLOG</a></li>
-        <li class="breadcrumb-item"><a href="">SALE</a></li>
-        <li class="breadcrumb-item"><a href="">ABOUT US</a></li>
-        <li class="breadcrumb-item"><a href="">CONTACT US</a></li>
-      </ol>
+    <nav class="breadcrumb">
+      <ul>
+        <li><a href="#">HOME</a></li>
+        <li><a href="#">PRODUCTS</a></li>
+        <li><a href="#">BLOG</a></li>
+        <li><a href="#">SALE</a></li>
+        <li><a href="#">ABOUT US</a></li>
+        <li><a href="#">CONTACT US</a></li>
+        </ui>
     </nav>
     <div class="News-BestDeals w-100">
       <div class="row">
@@ -362,26 +459,34 @@
             styles and colors.</p>
         </div>
       </div>
-
-
-
+      <a href="#">JOIN NOW <i class="far fa-arrow-alt-circle-right"></i></a>
     </div>
+
+
   </header>
 
   <main>
 
-    <section class="show-case row">
-      <div class="col-12 col-lg-4">
-        <h3>NEW ARRIVALS</h3>
-        <p>SEE OUR LATEST MUST-HAVES >></p>
-      </div>
-      <div class="col-12 col-lg-4">
-        <h3>WE LOVE</h3>
-        <p>CHECK OUT STYLISH FAVORITES >></p>
-      </div>
-      <div class="col-12 col-lg-4">
-        <h3>FREE SHOPPING</h3>
-        <p>ON ALL 2016 COLLECTION >></p>
+    <section class="Show-Case">
+      <div class="row">
+        <div class="col-12 col-lg-4">
+          <a href="#">
+            <h3>NWE ARRIVALS</h3>
+            <p>SEE OUR LASTEST MUST-HAVES >></p>
+          </a>
+        </div>
+        <div class="col-12 col-lg-4">
+          <a href="#">
+            <h3>WE LOVE ♡</h3>
+            <p>CHECK OUT STYLISH FAVORITES >></p>
+          </a>
+        </div>
+        <div class="col-12 col-lg-4">
+          <a href="#">
+            <h3>FREE SHIPPING</h3>
+            <p>ON ALL 2016 COLLECTION >></p>
+          </a>
+        </div>
       </div>
     </section>
     <section class="News-Hair">
