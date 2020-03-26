@@ -22,390 +22,12 @@
   <link href="https://fonts.googleapis.com/css?family=Work+Sans&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Six+Caps&display=swap" rel="stylesheet">
+  <!-- other -->
   <link rel="stylesheet" href="Reset.css">
+  <link rel="stylesheet" href="StyleFactory.css">
   <title>StyleFactory</title>
   <style>
-    h3,
-    h4,
-    p {
-      font-family: 'Work Sans', sans-serif;
-    }
 
-    a {
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: none;
-    }
-
-    header {
-      width: 100%;
-      /* background-color: yellow; */
-    }
-    .Customer-Function{
-      background-color: #d4bc85;
-      width: 100%;
-      padding: 5px 10%;
-    }    
-    .dropdownMenu-btn{
-      display: inline-block;
-      /* background-color: #D3D3D3; */
-      font-size: 20px;
-      margin: 15px;
-      cursor: pointer;
-    }
-    .Customer-Function .row .dropdown {
-      /* width: 100%; */
-      /* display: block; */
-      /* width: 40px;
-      height: 40px; */
-      /* position: relative; */
-      /* background-color: #fff; */
-      /* padding: auto; */
-      
-    }
-
-
-
-    .Main-Logo {
-      /* background-color: burlywood; */
-      justify-items: center;
-      margin: 0 30px;
-    }
-
-    .Main-Logo .logo {
-      margin: 40px auto 10px auto;
-    }
-
-
-    .breadcrumb {
-      background-color: #ffffff;
-      position: sticky;
-      top: 0;
-      z-index: 1;
-      justify-content: center;
-    }
-
-    .breadcrumb ul {
-      padding: 17px;
-      display: flex;
-      flex-wrap: wrap;
-    }
-
-    .breadcrumb a {
-      margin: 0px 27px;
-      color: black;
-      font-weight: 600;
-      font-size: 16px;
-      font-family: 'Work Sans', sans-serif;
-    }
-
-    .breadcrumb a:hover {
-      text-decoration: none;
-      color: #ffa396;
-    }
-
-    .breadcrumb li+li::before {
-      content: '/';
-      color: #90a4ae;
-      font-weight: 700;
-    }
-
-    main {
-      padding: 0 8%;
-    }
-
-    section {
-      text-align: center;
-    }
-
-    .News-BestDeals {
-      color: #ffffff;
-      background-image: url(images/greeting_image.jpg);
-      background-size: cover;
-      background-position: center;
-      /* 1920 x 946 */
-      /* height: 946px; */
-      /* padding-bottom: 49.27%; */
-    }
-
-    .News-BestDeals .row .main-txt {
-      height: 100%;
-      justify-items: right;
-      padding-right: 5%;
-      padding-left: 10%;
-      padding-top: 10%;
-    }
-
-    .News-BestDeals .row .main-txt h3 {
-      width: 100%;
-      flex-wrap: wrap;
-      font-size: 30px;
-      vertical-align: baseline;
-      line-height: 1em;
-      text-align: right;
-      padding-top: 10%;
-      border-top: 1px solid #ffffff;
-      position: relative;
-    }
-
-    .News-BestDeals .row .main-txt h3::before {
-      content: '';
-      width: 50px;
-      height: 4px;
-      background-color: white;
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-
-    .News-BestDeals .row .main-txt h3 strong {
-      /* background-color: #7dd0dc; */
-      font: bolder;
-      font-weight: 800;
-    }
-
-    .News-BestDeals .row .sub-txt {
-      width: 100%;
-      height: 100%;
-      font-size: 20px;
-      font-family: 'Work Sans', sans-serif;
-      line-height: 1.5;
-      justify-items: left;
-      padding-right: 5%;
-      padding-left: 10%;
-      padding-top: 45%;
-
-    }
-
-    .News-BestDeals .row .col-12:nth-child(2) {
-      /* opacity: 0; */
-    }
-
-    .News-BestDeals a {
-      width: 12%;
-      box-sizing: border-box;
-      display: block;
-      font-size: 18px;
-      color: black;
-      background-color: white;
-      padding: 2%;
-      margin: 0 44%;
-      transition: 0.7s;
-
-    }
-
-    .News-BestDeals a:hover {
-      color: white;
-      background-color: black;
-    }
-
-    .Show-Case {
-      width: 100%;
-      margin: auto;
-      padding: 100px 0;
-    }
-
-    .Show-Case a {
-      /* margin: 100px 20px 90px 20px; */
-      padding: 37px 0 35px;
-      text-align: center;
-      height: 170px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      color: #181a1f;
-      border-bottom: 1px solid rgba(128, 128, 128, 0.432);
-    }
-
-    .Show-Case .row div {
-      padding: 0 50px;
-      transition: all 0.5s ease 0s;
-    }
-
-    .Show-Case .row div:hover {
-      transform: scale(1.1, 1.1);
-    }
-
-    .Show-Case .row .col-12.col-lg-4:nth-child(1) a {
-      position: relative;
-      border-top: 1px solid #7dd0dc;
-    }
-
-    .Show-Case .row .col-12:nth-child(1) a::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      margin: auto;
-      width: 50px;
-      height: 4px;
-      background-color: #7dd0dc;
-    }
-
-    .Show-Case .row .col-12.col-lg-4:nth-child(1) h3 {
-      margin-bottom: 30px;
-      font-family: 'Six Caps', sans-serif;
-      font-size: 50px;
-      letter-spacing: 0.05em;
-      color: #7dd0dc;
-    }
-
-    .Show-Case .row .col-12.col-lg-4:nth-child(2) a {
-      position: relative;
-      border-top: 1px solid #d4bc85;
-    }
-
-    .Show-Case .row .col-12.col-lg-4:nth-child(2) a::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      margin: auto;
-      width: 50px;
-      height: 4px;
-      background-color: #d4bc85;
-
-    }
-
-    .Show-Case .row .col-12.col-lg-4:nth-child(2) h3 {
-      margin-bottom: 30px;
-      font-family: 'Six Caps', sans-serif;
-      font-size: 50px;
-      letter-spacing: 0.05em;
-      color: #d4bc85;
-    }
-
-    .Show-Case .row .col-12.col-lg-4:nth-child(3) a {
-      position: relative;
-      border-top: 1px solid #ffa396;
-    }
-
-    .Show-Case .row .col-12.col-lg-4:nth-child(3) a::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      margin: auto;
-      width: 50px;
-      height: 4px;
-      background-color: #ffa396;
-    }
-
-    .Show-Case .row .col-12.col-lg-4:nth-child(3) h3 {
-      margin-bottom: 30px;
-      font-family: 'Six Caps', sans-serif;
-      font-size: 50px;
-      letter-spacing: 0.05em;
-      color: #ffa396;
-    }
-
-    .categories {
-      text-align: center;
-    }
-
-    footer {
-      font-family: 'Lato', sans-serif;
-      font-size: 20px;
-    }
-
-    .Special-Offer {
-      background-color: #e7f5f7;
-      padding: 80px 0 107px;
-    }
-
-    .Special-Offer h3 {
-      font: 24px bolder #181a1f;
-      font-family: 'Work Sans', sans-serif;
-      margin: 15px 0;
-    }
-
-    .Special-Offer h4 {
-      font: 24px #181a1f;
-      font-family: 'Work Sans', sans-serif;
-      margin: 15px 0;
-    }
-
-    .Icon-Box {
-      display: flex;
-      justify-content: center;
-      margin: 10px;
-    }
-
-    .icon {
-      border: 1px solid;
-      border-radius: 50%;
-      padding: 15px;
-    }
-
-    .mapouter {
-      position: relative;
-      text-align: right;
-      width: 100%;
-    }
-
-    .gmap_canvas {
-      overflow: hidden;
-      background: none !important;
-      height: 0;
-      width: 100%;
-      padding-bottom: 20%;
-    }
-
-    .info {
-      display: flex;
-      background-color: #181a1f;
-      padding: 78px 0 125px;
-      line-height: 45px;
-      text-transform: capitalize;
-      font-weight: lighter;
-      color: #D3D3D3;
-      font-family: 'Lato', sans-serif;
-    }
-
-    .info div {
-      text-align: left;
-      padding: 30px;
-      justify-content: space-around;
-    }
-
-    .info div ol {
-      text-align: left;
-    }
-
-    .info div ol li a {
-      color: #D3D3D3;
-      font-family: 'Lato', sans-serif;
-    }
-
-    .info img {
-      margin: 15px 0 10px;
-    }
-
-    .info h3 {
-      font: bold 20px;
-      font-family: 'Work Sans', sans-serif;
-      color: #ffffff;
-      margin: 15px 0 26px;
-      line-height: normal;
-      font-weight: bolder;
-    }
-
-
-
-    .info a:hover {
-      color: #7dd0dc;
-    }
-
-    .copyright {
-      background-color: #222326;
-      color: #D3D3D3;
-      padding: 20px 45px;
-    }
   </style>
 </head>
 
@@ -420,15 +42,18 @@
             <i class="fas fa-bars"></i>
           </div>
           <div class="dropdown-menu">
-            <label class="dropdown-header">Currency</label>
+            <label class="dropdown-item" href="#">Currency</label>
             <label class="dropdown-item" href="#">My Account</label>
             <label class="dropdown-item" href="#">Wishlist</label>
             <label class="dropdown-item" href="#">Checkout</label>
           </div>
         </div>
-        <form class="form-inline my-2 order-last">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <form class="SearchStore form-inline my-2 order-last">
+          <a href="#" class="shopping-cart">
+            <i class="fas fa-shopping-cart"></i>
+          </a>
+          <input class="form-control mr-sm-2" type="search" placeholder="Search store" aria-label="Search">
+          <i class="fas fa-search"></i>
         </form>
       </div>
     </nav>
@@ -490,11 +115,14 @@
       </div>
     </section>
     <section class="News-Hair">
-      <img src="images/promo_block_img.jpg" alt="" class="w-100 d-block">
+      <h2>HAIR</h2>
+      <h3>EXTENSIONS</h3>
+      <h4>ADD LENGTH & VOLUME IN SECONDS</h4>
+      <a href="#">Read More</a>
     </section>
 
     <section class="categories">
-      <h3>BROWSE OUR CATEGORIES</h3>
+      <h3> <span>BROWSE</span> OUR CATEGORIES</h3>
       <div class="row">
         <figure class="col-12 col-lg-3">
           <img src="images/category1_c699b5ea-b75e-4185-9a8e-2a65b0fc3814_430x396_crop_top.jpg" alt=""
@@ -507,21 +135,21 @@
         <figure class="col-12 col-lg-3">
           <img src="images/category2_430x396_crop_top.jpg" alt="" class="w-100 d-block">
           <figcaption>
-            <h4>Men’s hair care</h4>
+            <h4>Hair Styling</h4>
             <a href="">7 products</a>
           </figcaption>
         </figure>
         <figure class="col-12 col-lg-3">
           <img src="images/category3_430x396_crop_top.jpg" alt="" class="w-100 d-block">
           <figcaption>
-            <h4>Men’s hair care</h4>
+            <h4>Hair Health treatment</h4>
             <a href="">7 products</a>
           </figcaption>
         </figure>
         <figure class="col-12 col-lg-3">
           <img src="images/category4_430x396_crop_top.jpg" alt="" class="w-100 d-block">
           <figcaption>
-            <h4>Men’s hair care</h4>
+            <h4>Hair care for kids</h4>
             <a href="">7 products</a>
           </figcaption>
         </figure>
@@ -529,40 +157,60 @@
     </section>
 
     <section class="onsale">
-      <h3>PRODUCTS ON SALE</h3>
+      <h3> <span>PRODUCTS</span> ON SALE</h3>
       <div class="row">
         <figure class="col-12 col-lg-3">
           <img src="images/argan_oil_hair_mask_01_370x370_crop_top.jpg" alt="" class="w-100 d-block">
           <figcaption>
-            <h4>Men’s hair care</h4>
-            <a href="">7 products</a>
+            <h4>Argan Oil Hair Masl</h4>
+            <span>$60.00</span>
+            <a href="#" class="Add"><i class="fas fa-shopping-cart"></i> Add to cart</a>
+            <div class="iconbox">
+              <a href="#"><i class="far fa-heart"></i></a>
+              <a href="#"><i class="fas fa-eye"></i></a>
+            </div>
           </figcaption>
         </figure>
         <figure class="col-12 col-lg-3">
           <img src="images/garnier_fructis_01_370x370_crop_top.jpg" alt="" class="w-100 d-block">
           <figcaption>
-            <h4>Men’s hair care</h4>
-            <a href="">7 products</a>
+            <h4>Argan Oil Hair Masl</h4>
+            <span>$60.00</span>
+            <a href="#" class="Add"><i class="fas fa-shopping-cart"></i> Add to cart</a>
+            <div class="iconbox">
+              <a href="#"><i class="far fa-heart"></i></a>
+              <a href="#"><i class="fas fa-eye"></i></a>
+            </div>
           </figcaption>
         </figure>
         <figure class="col-12 col-lg-3">
           <img src="images/herbal_essences_01_370x370_crop_top.jpg" alt="" class="w-100 d-block">
           <figcaption>
-            <h4>Men’s hair care</h4>
-            <a href="">7 products</a>
+            <h4>Argan Oil Hair Masl</h4>
+            <span>$60.00</span>
+            <a href="#" class="Add"><i class="fas fa-shopping-cart"></i> Add to cart</a>
+            <div class="iconbox">
+              <a href="#"><i class="far fa-heart"></i></a>
+              <a href="#"><i class="fas fa-eye"></i></a>
+            </div>
           </figcaption>
         </figure>
         <figure class="col-12 col-lg-3">
           <img src="images/l_oreal_paris_studio_line_1_370x370_crop_top.jpg" alt="" class="w-100 d-block">
           <figcaption>
-            <h4>Men’s hair care</h4>
-            <a href="">7 products</a>
+            <h4>Argan Oil Hair Masl</h4>
+            <span>$60.00</span>
+            <a href="#" class="Add"><i class="fas fa-shopping-cart"></i> Add to cart</a>
+            <div class="iconbox">
+              <a href="#"><i class="far fa-heart"></i></a>
+              <a href="#"><i class="fas fa-eye"></i></a>
+            </div>
           </figcaption>
         </figure>
       </div>
     </section>
     <section class="NEWS">
-      <h3>SEE WHAT'S NEW ON OUR BLOG</h3>
+      <h3> <span>SEE</span>  WHAT'S NEW ON OUR BLOG</h3>
       <div class="row">
         <figure class="col-12 col-lg-4">
           <span>14 JANUARY</span>
@@ -596,38 +244,58 @@
     </section>
 
     <section class="featured">
-      <h3>PRODUCTS ON SALE</h3>
+      <h3> <span>FEATURED</span>  PRODUCTS</h3>
       <div class="row">
         <figure class="col-12 col-lg-3">
           <img src="images/infiniti_pro_by_conair_hair_designer_3_in_1_styling_system_02_370x370_crop_top.jpg" alt=""
             class="w-100 d-block">
           <figcaption>
-            <h4>Men’s hair care</h4>
-            <a href="">7 products</a>
+            <h4>Argan Oil Hair Masl</h4>
+            <span>$60.00</span>
+            <a href="#" class="Add"><i class="fas fa-shopping-cart"></i> Add to cart</a>
+            <div class="iconbox">
+              <a href="#"><i class="far fa-heart"></i></a>
+              <a href="#"><i class="fas fa-eye"></i></a>
+            </div>
           </figcaption>
         </figure>
         <figure class="col-12 col-lg-3">
           <img src="images/instyler_ionic_styler_pro_ceramic_flat_iron_1_370x370_crop_top.jpg" alt=""
             class="w-100 d-block">
           <figcaption>
-            <h4>Men’s hair care</h4>
-            <a href="">7 products</a>
+            <h4>Argan Oil Hair Masl</h4>
+            <span>$60.00</span>
+            <a href="#" class="Add"><i class="fas fa-shopping-cart"></i> Add to cart</a>
+            <div class="iconbox">
+              <a href="#"><i class="far fa-heart"></i></a>
+              <a href="#"><i class="fas fa-eye"></i></a>
+            </div>
           </figcaption>
         </figure>
         <figure class="col-12 col-lg-3">
           <img src="images/jose_eber_wet_dry_flat_iron_straightener_01_370x370_crop_top.jpg" alt=""
             class="w-100 d-block">
           <figcaption>
-            <h4>Men’s hair care</h4>
-            <a href="">7 products</a>
+            <h4>Argan Oil Hair Masl</h4>
+            <span>$60.00</span>
+            <a href="#" class="Add"><i class="fas fa-shopping-cart"></i> Add to cart</a>
+            <div class="iconbox">
+              <a href="#"><i class="far fa-heart"></i></a>
+              <a href="#"><i class="fas fa-eye"></i></a>
+            </div>
           </figcaption>
         </figure>
         <figure class="col-12 col-lg-3">
           <img src="images/glide_thru_detangler_hair_comb_or_brush_01_370x370_crop_top.jpg" alt=""
             class="w-100 d-block">
           <figcaption>
-            <h4>Men’s hair care</h4>
-            <a href="">7 products</a>
+            <h4>Argan Oil Hair Masl</h4>
+            <span>$60.00</span>
+            <a href="#" class="Add"><i class="fas fa-shopping-cart"></i> Add to cart</a>
+            <div class="iconbox">
+              <a href="#"><i class="far fa-heart"></i></a>
+              <a href="#"><i class="fas fa-eye"></i></a>
+            </div>
           </figcaption>
         </figure>
       </div>
@@ -635,16 +303,16 @@
   </main>
 
   <footer>
-    <h3>FOLLOW US ON INSTAGRAM</h3>
+    <h3 class="Follow-Us"> <span>FOLLOW</span>  US ON INSTAGRAM</h3>
     <section class="Special-Offer">
       <h3>GET OUR SPECIAL OFFERS</h3>
       <h4>AND THE ULTIMATE HAIR CARE TIPS & TRICKS!</h4>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <form class="Subscribe form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Enter your email" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Subscribe</button>
       </form>
       <h3>LET'S STAY CONNECTED</h3>
-      <div class="Icon-Box">
+      <div class="Icon-Box-Circle">
         <div class="icon"><i class="fab fa-twitter"></i></div>
         <div class="icon"><i class="fab fa-facebook"></i></div>
         <div class="icon"><i class="fab fa-youtube"></i></div>

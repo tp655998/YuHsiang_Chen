@@ -1,0 +1,578 @@
+h2,
+h3,
+h4,
+p {
+  font-family: 'Work Sans', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+header {
+  width: 100%;
+  /* background-color: yellow; */
+}
+.Customer-Function{
+  /* background-color: #d4bc85; */
+  width: 100%;
+  padding: 5px 5% 5px 10%;
+  border-bottom:1px solid #e9e9e9;
+}    
+.dropdownMenu-btn{
+  display: inline-block;
+  /* background-color: #D3D3D3; */
+  font-size: 20px;
+  margin-top: 18px;
+  cursor: pointer;
+}
+
+.dropdown-menu .dropdown-item{
+    transition: 0.5s;
+}
+.dropdown-menu .dropdown-item:hover{
+    cursor: pointer;
+    color: #ffa396;
+}
+
+.SearchStore{
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+
+.shopping-cart,
+.fa-search{
+    /* background-color: #90a4ae; */
+    /* font-size: 20px; */
+    margin-right: 30px;
+    margin-left: 10px;
+    color: #181a1f;
+    transition: 0.5s;
+}
+
+.shopping-cart:hover,
+.fa-search:hover{
+    color: #ffa396;
+}
+
+.Main-Logo {
+  /* background-color: burlywood; */
+  justify-items: center;
+  margin: 0 30px;
+}
+
+.Main-Logo .logo {
+  margin: 40px auto 10px auto;
+}
+
+.breadcrumb {
+  background-color: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  justify-content: center;
+}
+
+.breadcrumb ul {
+  padding: 17px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.breadcrumb a {
+  margin: 0px 27px;
+  color: black;
+  font-weight: 600;
+  font-size: 16px;
+  font-family: 'Work Sans', sans-serif;
+  transition: .5s;
+}
+
+.breadcrumb a:hover {
+  text-decoration: none;
+  color: #ffa396;
+}
+
+.breadcrumb ul li:nth-child(1) a{
+    color: #ffa396;
+}
+.breadcrumb li+li::before {
+  content: '/';
+  color: #90a4ae;
+  font-weight: 700;
+}
+
+main {
+  padding: 0 8%;
+}
+
+section {
+  text-align: center;
+}
+
+.News-BestDeals {
+  color: #ffffff;
+  background-image: url(images/greeting_image.jpg);
+  background-size: cover;
+  background-position: center;
+  /* 1920 x 946 */
+  /* height: 946px; */
+  /* padding-bottom: 49.27%; */
+}
+
+.News-BestDeals .row .main-txt {
+  height: 100%;
+  justify-items: right;
+  padding-right: 5%;
+  padding-left: 10%;
+  padding-top: 10%;
+}
+
+.News-BestDeals .row .main-txt h3 {
+  width: 100%;
+  flex-wrap: wrap;
+  font-size: 30px;
+  vertical-align: baseline;
+  line-height: 1em;
+  text-align: right;
+  padding-top: 10%;
+  border-top: 1px solid #ffffff;
+  position: relative;
+}
+
+.News-BestDeals .row .main-txt h3::before {
+  content: '';
+  width: 50px;
+  height: 4px;
+  background-color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.News-BestDeals .row .main-txt h3 strong {
+  /* background-color: #7dd0dc; */
+  font: bolder;
+  font-weight: 800;
+}
+
+.News-BestDeals .row .sub-txt {
+  width: 100%;
+  height: 100%;
+  font-size: 20px;
+  font-family: 'Work Sans', sans-serif;
+  line-height: 1.5;
+  justify-items: left;
+  padding-right: 5%;
+  padding-left: 10%;
+  padding-top: 45%;
+
+}
+
+.News-BestDeals .row .col-12:nth-child(2) {
+  /* opacity: 0; */
+}
+
+.News-BestDeals a {
+  width: 12%;
+  box-sizing: border-box;
+  display: block;
+  font-size: 18px;
+  color: black;
+  background-color: white;
+  padding: 2%;
+  margin: 0 44%;
+  transition: 0.7s;
+
+}
+
+.News-BestDeals a:hover {
+  color: white;
+  background-color: black;
+}
+
+.Show-Case {
+  width: 100%;
+  margin: auto;
+  padding: 70px 0;
+}
+
+.Show-Case a {
+  /* margin: 100px 20px 90px 20px; */
+  padding: 37px 0 35px;
+  text-align: center;
+  height: 170px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #181a1f;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.432);
+}
+
+.Show-Case .row div {
+  padding: 0 50px;
+  transition: all 0.5s ease 0s;
+}
+
+.Show-Case .row div:hover {
+  transform: scale(1.1, 1.1);
+}
+
+.Show-Case .row .col-12.col-lg-4:nth-child(1) a {
+  position: relative;
+  border-top: 1px solid #7dd0dc;
+}
+
+.Show-Case .row .col-12:nth-child(1) a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 50px;
+  height: 4px;
+  background-color: #7dd0dc;
+}
+
+.Show-Case .row .col-12.col-lg-4:nth-child(1) h3 {
+  margin-bottom: 30px;
+  font-family: 'Six Caps', sans-serif;
+  font-size: 50px;
+  letter-spacing: 0.05em;
+  color: #7dd0dc;
+}
+
+.Show-Case .row .col-12.col-lg-4:nth-child(2) a {
+  position: relative;
+  border-top: 1px solid #d4bc85;
+}
+
+.Show-Case .row .col-12.col-lg-4:nth-child(2) a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 50px;
+  height: 4px;
+  background-color: #d4bc85;
+
+}
+
+.Show-Case .row .col-12.col-lg-4:nth-child(2) h3 {
+  margin-bottom: 30px;
+  font-family: 'Six Caps', sans-serif;
+  font-size: 50px;
+  letter-spacing: 0.05em;
+  color: #d4bc85;
+}
+
+.Show-Case .row .col-12.col-lg-4:nth-child(3) a {
+  position: relative;
+  border-top: 1px solid #ffa396;
+}
+
+.Show-Case .row .col-12.col-lg-4:nth-child(3) a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 50px;
+  height: 4px;
+  background-color: #ffa396;
+}
+
+.Show-Case .row .col-12.col-lg-4:nth-child(3) h3 {
+  margin-bottom: 30px;
+  font-family: 'Six Caps', sans-serif;
+  font-size: 50px;
+  letter-spacing: 0.05em;
+  color: #ffa396;
+}
+
+.News-Hair{
+    width: 100%;
+    background-image: url(images/promo_block_img.jpg);
+    padding: 5% 0 5% 50%;
+    padding-left: 50%;
+    text-align: left;
+    background-size: cover;
+    background-position: right;
+}
+.News-Hair h2{
+    color: #ffffff;
+    font-size: 80px;
+    font: bolder;
+    font-weight: 900;
+    margin-bottom: 15px;
+}
+.News-Hair h3{
+    color: #181a1f;
+    font-size: 80px;
+    font-weight: lighter;
+    margin-bottom: 15px;
+}
+.News-Hair h4{
+    color: #181a1f;
+    font-size: 30px;
+    font-weight: lighter;
+    margin-bottom: 15px;
+}
+
+.News-Hair a{
+    display: inline-block;
+    color: #181a1f;
+    font:bold;
+    padding: 10px;
+    margin-bottom: 20px;
+    border:2px solid #181a1f;
+    transition: .5s;
+}
+.News-Hair a:hover{
+    background-color: #181a1f;
+    color: #ffffff;
+}
+
+
+.categories h3,
+.onsale h3,
+.NEWS h3,
+.featured h3,
+.Follow-Us{
+    font-size: 35px;
+    line-height: 1.5em;
+    margin: 20px;
+}
+.categories h3 span,
+.onsale h3 span,
+.NEWS h3 span,
+.featured h3 span,
+.Follow-Us span{
+    font-weight: bolder;
+}
+
+
+.col-lg-3{
+    /* background-color: #d4bc85; */
+    padding: 0;
+}
+
+figure{
+    border: #e7e7e7 1px solid;
+}
+
+.categories figcaption{
+    transition: .5s;
+    position: relative;
+}
+.categories figcaption:hover{
+    /* background-color: #ffa396; */
+    background-color: rgba(255, 163, 150, 0.2);
+}
+.categories figcaption::before{
+    content: '';
+    position: absolute;
+    border-top: #181a1f 2px solid;
+    width: 0%;
+    transition: .5s;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+}
+.categories figcaption:hover::before{
+    width: 100%;
+}
+
+.categories figcaption h4{
+    font-size: 25px;
+    font-weight: 600;
+    padding: 40px 0 20px;
+    text-transform: uppercase;
+    
+}
+.categories figcaption a{
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 30px;
+    padding: 15px;
+    color: #181a1f;
+    border:2px #181a1f solid;
+    transition: .5s;
+}
+.categories figcaption a:hover{
+    background-color: #181a1f;
+    color: #ffffff;
+}
+.onsale figure:hover,
+.featured figure:hover{
+    border: #181a1f 1px solid;
+}
+.onsale img,
+.featured img{
+    padding: 30px 30px 15px;
+}
+.onsale figcaption,
+.featured figcaption{
+    line-height: 2;
+}
+.onsale figcaption h4,
+.featured figcaption h4{
+    font-size: 25px;
+    font-weight: lighter;
+}
+.onsale figcaption span,
+.featured figcaption span{
+    display: block;
+    font-size: 28px;
+    font-weight: bolder;
+}
+.onsale figcaption .Add,
+.featured figcaption .Add{
+    display: inline-block;
+    font-size: 16px;
+    color: #181a1f;
+    border: #181a1f 2px solid;
+    padding: 5px;
+    transition: .5s;
+    margin: 10px;
+}
+figcaption .Add:hover{
+    color: #ffffff;
+    background-color: #181a1f;
+}
+.onsale figcaption .iconbox a,
+.featured figcaption .iconbox a{
+    font-size: 20px;
+    padding: 5px;
+    color: #181a1f;
+    transition: .5s;
+}
+.onsale figcaption .iconbox a:hover,
+.featured figcaption .iconbox a:hover{
+    color: #ffa396;
+}
+footer {
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;
+}
+
+.Follow-Us{
+    text-align: center;
+}
+
+.Special-Offer {
+  background-color: #e7f5f7;
+  padding: 80px 0 107px;
+}
+
+.Special-Offer h3 {
+  font: 24px bolder #181a1f;
+  font-family: 'Work Sans', sans-serif;
+  margin: 15px 0;
+}
+
+.Special-Offer h4 {
+  font: 24px #181a1f;
+  font-family: 'Work Sans', sans-serif;
+  margin: 15px 0;
+}
+
+.Subscribe{
+    justify-content: center;
+}
+.Subscribe button{
+    color: #181a1f;
+    border: #181a1f 2px solid;
+    border-radius: 0;
+}
+.Subscribe button:hover{
+    color: #fff;
+    background-color: #181a1f;
+    border-color: #181a1f;
+}
+
+.Icon-Box-Circle {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
+.Icon-Box-Circle .icon {
+  border: 1px solid;
+  border-radius: 50%;
+  padding: 15px;
+}
+
+
+.mapouter {
+  position: relative;
+  text-align: right;
+  width: 100%;
+}
+
+.gmap_canvas {
+  overflow: hidden;
+  background: none !important;
+  height: 0;
+  width: 100%;
+  padding-bottom: 20%;
+}
+
+.info {
+  display: flex;
+  background-color: #181a1f;
+  padding: 78px 0 125px;
+  line-height: 45px;
+  text-transform: capitalize;
+  font-weight: lighter;
+  color: #D3D3D3;
+  font-family: 'Lato', sans-serif;
+}
+
+.info div {
+  text-align: left;
+  padding: 30px;
+  justify-content: space-around;
+}
+
+.info div ol {
+  text-align: left;
+}
+
+.info div ol li a {
+  color: #D3D3D3;
+  font-family: 'Lato', sans-serif;
+}
+
+.info img {
+  margin: 15px 0 10px;
+}
+
+.info h3 {
+  font: bold 20px;
+  font-family: 'Work Sans', sans-serif;
+  color: #ffffff;
+  margin: 15px 0 26px;
+  line-height: normal;
+  font-weight: bolder;
+}
+
+.info a:hover {
+  color: #7dd0dc;
+}
+
+.copyright {
+  background-color: #222326;
+  color: #D3D3D3;
+  padding: 20px 45px;
+}
