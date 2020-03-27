@@ -113,9 +113,16 @@ main {
 
 section {
   text-align: center;
+  width: 100%;
+  margin: auto 0;
+  box-sizing: border-box;
+}
+.row{
+  margin: auto 0;
 }
 
 .News-BestDeals {
+  width: 100%;
   color: #ffffff;
   background-image: url(images/greeting_image.jpg);
   background-size: cover;
@@ -307,6 +314,7 @@ section {
     text-align: left;
     background-size: cover;
     background-position: right;
+    box-sizing: border-box;
 }
 .News-Hair h2{
     color: #ffffff;
@@ -364,10 +372,12 @@ section {
 .col-lg-3{
     /* background-color: #d4bc85; */
     padding: 0;
+    margin: auto 0;
 }
 
 figure{
     border: #e7e7e7 1px solid;
+    width: 100%;
 }
 
 .categories figcaption{
