@@ -157,6 +157,7 @@
         var sqr = document.getElementById('square');
         var root = document.getElementById('root');
         var neg = document.getElementById('+/-');
+        var reverse = document.getElementById('reverse');
 
         var back = document.getElementById('back');
         var clear = document.getElementById('clear');
@@ -220,6 +221,11 @@
             r2.innerHTML = 'negate(' + r1.innerHTML + ')';
             r1.innerHTML = Cal(r1.innerHTML, 0, '+/-')
         })
+        //1/x
+        reverse.addEventListener('click', () => {
+            r2.innerHTML = '1/(' + r1.innerHTML + ')';
+            r1.innerHTML = Cal(r1.innerHTML, 0, '1/x')
+        })
 
         //等於
         equal.addEventListener('click', () => {
@@ -244,10 +250,13 @@
                     return eval(a * a);
                 case 'root':
                     return Math.sqrt(a);
+
                 case '+/-':
                     if (a > 0) { a = -a }
                     else { a = Math.abs(a) }
                     return a;
+                case '1/x':
+                    return eval(1 / a);
             }
         }
 
