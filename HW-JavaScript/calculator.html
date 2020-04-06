@@ -126,7 +126,7 @@
                 <button class="num-btn col-3">2</button>
                 <button class="num-btn col-3">3</button>
                 <button class="fun-btn col-3" id="add"><i class="fa fa-plus" aria-hidden="true"></i></button>
-                
+
 
                 <button class="fun-btn col-3" id="+/-">+/-</i></button>
                 <button class="num-btn col-3">0</button>
@@ -142,8 +142,8 @@
         var r1 = document.getElementById('r1');
         var r2 = document.getElementById('r2');
 
-        var op=String();
-        var newTurn=false;
+        var op = String();
+        var newTurn = false;
 
         var btns = document.querySelectorAll('.num-btn');
 
@@ -169,85 +169,85 @@
             item.addEventListener('click', inputNum);
         });
         function inputNum() {
-            restart();
+            // restart();
             if (r1.innerHTML == 0) {
                 r1.innerHTML = '';
             }
             r1.innerHTML += this.innerHTML;
         }
-        function restart(){
-            if(newTurn==true){
-                r1.innerHTML=0;
-                r2.innerHTML=0;
+        function restart() {
+            if (newTurn === true) {
+                r1.innerHTML = 0;
+                r2.innerHTML = 0;
                 return newTurn = false;
             }
         }
         //四則運算
         add.addEventListener('click', () => {
-            r2.innerHTML = r1.innerHTML+'+';
-            r1.innerHTML=0;
-            return op='+';
+            r2.innerHTML = r1.innerHTML + '+';
+            r1.innerHTML = 0;
+            return op = '+';
         })
         sub.addEventListener('click', () => {
-            r2.innerHTML = r1.innerHTML+'-';
-            r1.innerHTML=0;
-            return op='-';
+            r2.innerHTML = r1.innerHTML + '-';
+            r1.innerHTML = 0;
+            return op = '-';
         })
         mul.addEventListener('click', () => {
-            r2.innerHTML = r1.innerHTML+'x';
-            r1.innerHTML=0;
-            return op='x';
+            r2.innerHTML = r1.innerHTML + 'x';
+            r1.innerHTML = 0;
+            return op = 'x';
         })
         div.addEventListener('click', () => {
-            r2.innerHTML = r1.innerHTML+'÷';
-            r1.innerHTML=0;
-            return op='÷';
+            r2.innerHTML = r1.innerHTML + '÷';
+            r1.innerHTML = 0;
+            return op = '÷';
         })
 
         //平方
         sqr.addEventListener('click', () => {
-            r2.innerHTML = 'sqr('+r1.innerHTML+')';
-            r1.innerHTML= Cal(r1.innerHTML,0,'sqr')
+            r2.innerHTML = 'sqr(' + r1.innerHTML + ')';
+            r1.innerHTML = Cal(r1.innerHTML, 0, 'sqr')
         })
 
         //開根號
         root.addEventListener('click', () => {
-            r2.innerHTML = '√('+r1.innerHTML+')';
-            r1.innerHTML= Cal(r1.innerHTML,0,'root')
+            r2.innerHTML = '√(' + r1.innerHTML + ')';
+            r1.innerHTML = Cal(r1.innerHTML, 0, 'root')
         })
         //neg
         neg.addEventListener('click', () => {
-            r2.innerHTML = 'negate('+r1.innerHTML+')';
-            r1.innerHTML= Cal(r1.innerHTML,0,'+/-')
+            r2.innerHTML = 'negate(' + r1.innerHTML + ')';
+            r1.innerHTML = Cal(r1.innerHTML, 0, '+/-')
         })
 
         //等於
         equal.addEventListener('click', () => {
             let a = new Number(r2.innerHTML.substring(0, r2.innerHTML.length - 1));
             let b = new Number(r1.innerHTML);
-            r2.innerHTML += r1.innerHTML+'=';
-            r1.innerHTML = Cal(a,b,op);
-           return newTurn = true;
+            r2.innerHTML += r1.innerHTML + '=';
+            r1.innerHTML = Cal(a, b, op);
+            return newTurn = true;
         })
 
-        function Cal(a, b, op){
-             switch(op){
+        function Cal(a, b, op) {
+            switch (op) {
                 case '+':
-                return eval(a+b);
+                    return eval(a + b);
                 case '-':
-                return eval(a-b);
+                    return eval(a - b);
                 case 'x':
-                return eval(a*b);
+                    return eval(a * b);
                 case '÷':
-                return eval(a/b);
+                    return eval(a / b);
                 case 'sqr':
-                return eval(a*a);
+                    return eval(a * a);
                 case 'root':
-                return Math.sqrt(a);
+                    return Math.sqrt(a);
                 case '+/-':
-                    if(a>0){a=-a}
-                    else{a=Math.abs(a)}
-                return a;
+                    if (a > 0) { a = -a }
+                    else { a = Math.abs(a) }
+                    return a;
             }
         }
 
