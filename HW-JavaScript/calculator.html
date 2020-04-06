@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+        integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+
+    <title>計算機</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        .container {
+            background-color: #eee;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            border: 1px solid;
+            /* padding: 10px 0; */
+        }
+
+        .display {
+            border: 1px solid #aaa;
+            width: 100%;
+            /* height: 7rem; */
+            /* height: 0;
+            padding-bottom: 30%; */
+        }
+
+        .display-num {
+            /* background-color:aqua; */
+            display: block;
+            margin: 0 2rem .5rem 0;
+            font-size: 45px;
+            /* font-weight: bolder; */
+            text-align: right;
+
+        }
+
+        .standby-num {
+            /* background-color: antiquewhite; */
+            display: block;
+            margin: 0 2rem;
+            font-size: 20px;
+            color: #666;
+            /* font-weight: bolder; */
+            text-align: right;
+        }
+
+
+
+        .button-group {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            margin: auto;
+        }
+
+        .num-btn {
+            background-color: #fff;
+            border: 1px solid #ccc;
+        }
+
+        .fun-btn {
+            background-color: #eee;
+            border: 1px solid #ccc;
+        }
+
+        .button-group button {
+            padding: 10px;
+            font-weight: bolder;
+        }
+
+        .button-group button:hover {
+            background-color: #aaa;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <main class="row">
+            <section class="display">
+                <label class="standby-num" id="r2">0</label>
+                <label class="display-num" id="r1">0</label>
+            </section>
+            <section class="button-group">
+                <button class="fun-btn col-3" id="percent"><i class="fa fa-percent" aria-hidden="true"></i></button>
+                <button class="fun-btn col-3" id="CE">CE</button>
+                <button class="fun-btn col-3" id="clear">C</button>
+                <button class="fun-btn col-3" id="back"><i class="fa fa-backspace" aria-hidden="true"></i></button>
+
+                <button class="fun-btn col-3" id="reverse">1/x</i></button>
+                <button class="fun-btn col-3" id="square">x²</i></button>
+                <button class="fun-btn col-3" id="root"><i class="fa fa-square-root-alt"
+                        aria-hidden="true"></i></button>
+                <button class="fun-btn col-3" id="div"><i class="fa fa-divide" aria-hidden="true"></i></button>
+
+                <button class="num-btn col-3">7</button>
+                <button class="num-btn col-3">8</button>
+                <button class="num-btn col-3">9</button>
+                <button class="fun-btn col-3" id="mul"><i class="fa fa-times" aria-hidden="true"></i></button>
+
+                <button class="num-btn col-3">4</button>
+                <button class="num-btn col-3">5</button>
+                <button class="num-btn col-3">6</button>
+                <button class="fun-btn col-3" id="sub"><i class="fa fa-minus" aria-hidden="true"></i></button>
+
+                <button class="num-btn col-3">1</button>
+                <button class="num-btn col-3">2</button>
+                <button class="num-btn col-3">3</button>
+                <button class="fun-btn col-3" id="add">+</i></button>
+                <!-- <i class="fa fa-plus" aria-hidden="true"></i> -->
+
+                <button class="num-btn col-3" id="+-">+/-</i></button>
+                <button class="num-btn col-3">0</button>
+                <button class="num-btn col-3" id="dot"> . </button>
+                <button class="fun-btn col-3" id="equal"><i class="fa fa-equals" aria-hidden="true"></i></button>
+            </section>
+
+        </main>
+    </div>
+
+
+    <script>
+        var r1 = document.getElementById('r1');
+        var r2 = document.getElementById('r2');
+        var op=String();
+
+        var btns = document.querySelectorAll('.num-btn');
+
+        var add = document.getElementById('add');
+        var sub = document.getElementById('sub');
+        var mul = document.getElementById('mul');
+        var div = document.getElementById('div');
+
+        var equal = document.getElementById('equal');
+
+        var back = document.getElementById('back');
+        var clear = document.getElementById('clear');
+
+
+
+        // 數字鍵顯示
+        btns.forEach((item) => {
+            item.addEventListener('click', inputNum);
+        });
+        function inputNum() {
+            if (r1.innerHTML == 0) {
+                r1.innerHTML = '';
+            }
+            r1.innerHTML += this.innerHTML;
+        }
+        //四則運算
+        add.addEventListener('click', () => {
+            r2.innerHTML = r1.innerHTML+add.innerHTML;
+            r1.innerHTML=0;
+            return op='+';
+        })
+        equal.addEventListener('click', () => {
+            let a = new Number(r2.innerHTML.substring(0, r2.innerHTML.length - 1));
+            let b = new Number(r1.innerHTML);
+            r2.innerHTML += r1.innerHTML;
+            r1.innerHTML = Cal(a,b,op);
+           
+        })
+
+        function Cal(a, b, op){
+             switch(op){
+                case '+':
+                return eval(a+b);
+            }
+        }
+
+
+        //backspace
+        back.addEventListener('click', () => {
+            r1.innerHTML = r1.innerHTML.substring(0, r1.innerHTML.length - 1);
+            if (r1.innerHTML == '') {
+                r1.innerHTML = 0;
+            }
+        })
+        //clear
+        clear.addEventListener('click', () => {
+            r1.innerHTML = 0;
+            r2.innerHTML = 0;
+        })
+
+
+    </script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/95fe5e2d81.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+        integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+
+    <title>幾A幾B</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        .container {
+            background-color: antiquewhite;
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+            border: 1px solid;
+            /* padding: 10px 0; */
+        }
+
+        header h1 {
+            font-size: 60px;
+            font-weight: bolder;
+            padding: .5rem 0;
+            color: #b32a00;
+        }
+
+        .btn-group button {
+            background-color: #ffaa00;
+            border: 1px solid black;
+            font-weight: bold;
+            padding: .5rem 2rem;
+
+            transition: .3s;
+        }
+
+        .btn-group button:hover {
+            background-color: #b32a00;
+            color: #fff;
+        }
+
+        .display {
+            height: 0;
+            padding-bottom: 30%;
+        }
+
+        .Guess-Num {
+            margin-bottom: 1rem;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>幾A幾B</h1>
+        </header>
+        <main class="row">
+            <section class="btn-group col-12">
+                <button class="start col-4">Start!</button>
+                <button class="giveup col-4">Give Up</button>
+                <button class="show col-4">Show Answer</button>
+            </section>
+            <section class="display overflow-auto col-12">
+                <ul></ul>
+            </section>
+            <section class="Guess-Num col-12">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text bg-warning">輸入四位數字</span>
+                    </div>
+                    <input type="text" class="form-control">
+                    <div class="input-group-append">
+                        <button class="btn bg-warning" id="guess">Guess!</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        var start = document.querySelector('.start');
+        var giveup = document.querySelector('.giveup');
+        var show = document.querySelector('.show');
+
+        var ul = document.querySelector('ul');
+        var li = document.createElement('li');
+
+        var input = document.querySelector('input');
+        var guess = document.getElementById('guess');
+
+        var Ans = String();
+        //開始遊戲
+        start.addEventListener('click', () => {
+            Clean();
+
+            // 產生四位數的亂數
+            Ans = Math.floor(Math.random() * 10).toString();
+            while (Ans.length != 4) {
+                var randomNum = Math.floor(Math.random() * 10).toString();
+                if (!Ans.includes(randomNum))
+                    Ans += randomNum;
+            }
+            Status('驚心動魄的猜數字遊戲就此展開！');
+        })
+        //放棄
+        giveup.addEventListener('click', () => {
+            // 如果已開始遊戲才能按放棄
+            if (Ans.length == 4) {
+                alert(`您放棄了這場遊戲，為您公布解答 : ${Ans}`);
+                Clean();
+            }
+            else {
+                alert('Must Start The Game First!');
+            }
+        })
+        //顯示答案
+        show.addEventListener('click', () => {
+            // 如果已開始遊戲才能顯示答案
+            if (Ans.length == 4) {
+                alert(`答案是 : ${Ans}`);
+            }
+            else {
+                alert('Must Start The Game First!');
+            }
+        })
+
+        guess.addEventListener('click', () => { check(); })
+
+        input.addEventListener('keyup', (event) => {
+            //keycode 13 = Enter
+            if (event.keyCode == 13) {
+                check();
+            }
+        })
+
+        //清除
+        function Clean() {
+            ul.innerHTML = null;
+            input.value = null;
+            Ans = String();
+        }
+        //顯示狀態
+        function Status(string) {
+            ul.appendChild(li);
+            li.innerHTML = `<span class="badge  mr-3">${string}</span>`;
+            li.className = 'list-group-item';
+        }
+        function check() {
+            if (input.value.length != 4) {
+                alert('請輸入四位數');
+            }
+
+            else {
+                var countofA = 0;
+                var countofB = 0;
+                var intersect = [];
+                // 有交集就push到array
+                for (let ansNum of Ans) {
+                    for (let inputNum of input.value) {
+                        if (ansNum == inputNum) {
+                            intersect.push(ansNum);
+                        }
+                    }
+                }
+                // 計算A、B
+                intersect.forEach(function (item, index, array) {
+                    // 位置、數字皆相同
+                    if (Ans.indexOf(item) == input.value.indexOf(item)) {
+                        countofA++;
+                    }
+                    // 數字相同
+                    else {
+                        countofB++;
+                    }
+                })
+
+                ul.appendChild(li);
+                if (input.value != Ans) {
+                    li.innerHTML = `<span class="badge badge-danger mr-3">${countofA}A${countofB}B</span>` + input.value;
+                }
+                else {
+                    li.innerHTML = '<span class="badge badge-success mr-3">4A0B</span>' + input.value;
+                }
+                input.value = null;
+            }
+        }
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/95fe5e2d81.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

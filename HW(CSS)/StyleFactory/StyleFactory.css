@@ -114,7 +114,7 @@ section {
   text-align: center;
   width: 100%;
   margin: auto 0;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
 }
 .row{
   margin: auto 0;
@@ -307,12 +307,16 @@ section {
 .News-Hair{
     width: 100%;
     background-image: url(images/promo_block_img.jpg);
-    padding: 5% 0 5% 50%;
-    padding-left: 50%;
-    text-align: left;
     background-size: cover;
     background-position: right;
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
+}
+.News-Hair .col-lg-12{
+  padding: 5% 0 5% 50%;
+  /* background-color: #7dd0dc; */
+  width: 100%;
+  text-align: left;
+  /* z-index:3; */
 }
 .News-Hair h2{
     color: #ffffff;
@@ -320,6 +324,7 @@ section {
     font: bolder;
     font-weight: 900;
     margin-bottom: 15px;
+    background-color: #d4bc85;
 }
 .News-Hair h3{
     color: #181a1f;
@@ -374,8 +379,22 @@ section {
 }
 
 figure{
+    height: 100%;
     border: #e7e7e7 1px solid;
-    width: 100%;
+    padding: 0 15px;
+    width: 0;
+    flex-basis: 0;
+    flex-grow: 1;
+    box-sizing: border-box;
+}
+figcaption{
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+}
+figcaption a{
+  margin-top: auto;
+  align-self: center;
 }
 
 .categories figcaption{
@@ -425,10 +444,11 @@ figure{
 .featured figure:hover{
     border: #181a1f 1px solid;
 }
-.onsale img,
-.featured img{
+/* .onsale img,
+.featured img
+.categories img{
     padding: 30px 30px 15px;
-}
+} */
 .onsale figcaption,
 .featured figcaption{
     line-height: 2;
