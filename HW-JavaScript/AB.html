@@ -141,7 +141,16 @@
             }
         })
 
-        guess.addEventListener('click', () => { check(); })
+        guess.addEventListener('click', () => {
+            // 如果已開始遊戲才能輸入
+            if (Ans.length == 4) {
+                check();
+            }
+            else {
+                alert('Must Start The Game First!');
+            }
+            
+        })
 
         input.addEventListener('keyup', (event) => {
             //keycode 13 = Enter
@@ -158,6 +167,7 @@
         }
         //顯示狀態
         function Status(string) {
+            var li = document.createElement('li');
             ul.appendChild(li);
             li.innerHTML = `<span class="badge  mr-3">${string}</span>`;
             li.className = 'list-group-item';
@@ -190,7 +200,7 @@
                         countofB++;
                     }
                 })
-
+                var li = document.createElement('li');
                 ul.appendChild(li);
                 if (input.value != Ans) {
                     li.innerHTML = `<span class="badge badge-danger mr-3">${countofA}A${countofB}B</span>` + input.value;
