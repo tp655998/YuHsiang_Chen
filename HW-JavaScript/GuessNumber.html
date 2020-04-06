@@ -84,7 +84,6 @@
             flex-wrap: wrap;
             margin: auto;
         }
-
     </style>
 
 </head>
@@ -146,33 +145,33 @@
             mintmp = 0;
             maxtmp = 100;
         }
-        // 按Start後才能解鎖按鈕
-        if (start = true) {
-            //把所有btn加入事件，對每一個按鈕監聽事件'click'，當click時，執行inputNumber
-            btns.forEach((item) => {
-                item.addEventListener('click', inputNumber);
-            });
 
-            function inputNumber() {
-                if (input.value == '' && this.innerHTML == 0) {
-                    input.value = '';
-                }
-                else {
-                    input.value += this.innerHTML;
-                }
-            }
+        //把所有btn加入事件，對每一個按鈕監聽事件'click'，當click時，執行inputNumber
+        btns.forEach((item) => {
+            item.addEventListener('click', inputNumber);
+        });
 
-            //清除input
-            var Remove = document.getElementById('Remove');
-            Remove.onclick = function () {
+        function inputNumber() {
+            if (input.value == '' && this.innerHTML == 0) {
                 input.value = '';
             }
+            else {
+                input.value += this.innerHTML;
+            }
+        }
 
-            var Send = document.getElementById('Send');
-            var mintmp = 0;
-            var maxtmp = 100;
-            Send.onclick = function () {
-                // 超出範圍或等於->Error
+        //清除input
+        var Remove = document.getElementById('Remove');
+        Remove.onclick = function () {
+            input.value = '';
+        }
+
+        var Send = document.getElementById('Send');
+        var mintmp = 0;
+        var maxtmp = 100;
+        Send.onclick = function () {
+            // 按Start後才能解鎖按鈕
+            if (start == true) {  // 超出範圍或等於->Error
                 if (input.value >= maxtmp || input.value <= mintmp) {
                     alert('輸入無效')
                     range.innerHTML = mintmp + '~' + maxtmp;
@@ -191,10 +190,15 @@
                     input.value = '';
                 }
                 else {
+                    range.innerHTML = `<span class="text-danger">${randomNumber}</span>`;
                     alert('答對了，答案是：' + randomNumber)
                 }
             }
+            else{
+                alert('請先開始遊戲!');
+            }
         }
+
 
         // window.onload = getNumber();
     </script>
