@@ -170,7 +170,7 @@
         var mintmp = 0;
         var maxtmp = 100;
         Send.onclick = function () {
-            // 按Start後才能解鎖按鈕
+            // 按Start後才能解鎖
             if (start == true) {  // 超出範圍或等於->Error
                 if (input.value >= maxtmp || input.value <= mintmp) {
                     alert('輸入無效')
