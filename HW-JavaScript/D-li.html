@@ -27,21 +27,29 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <button onclick="add()">Add</button>
+                <button onclick="Arrayli()">Add</button>
+                <button onclick="Addli()">Add</button>
                 <ul></ul>
             </div>
         </div>
     </div>
 
     <script>
-
+        array1 = [1, 2, 3, 4, 5];
         var ul = document.querySelector('ul');
-        var li = document.createElement('li');
 
-        function add(){
+
+        function Arrayli() {
+            array1.forEach(element => {
+                var li = document.createElement('li');
+                ul.appendChild(li);
+                li.innerHTML = `<span class="badge badge-danger mr-3">Array li</span>`+{$};
+            });
+        }
+        function Addli() {
+            var li = document.createElement('li');
             ul.appendChild(li);
-            // li.innerHTML="new li"
-            li.innerHTML = `<span class="badge badge-danger mr-3">new li</span>`;
+            li.innerHTML = `<span class="badge badge-danger mr-3">new li $</span>`;
         }
 
 
