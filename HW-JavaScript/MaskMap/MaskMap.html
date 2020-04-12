@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Mask Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+        #map {
+            height: 100%;
+        }
+
+        /* Optional: Makes the sample page fill the window. */
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- <div id="msg"></div> -->
+    <div id="map"></div>
+
+    <script>
+        let msg = document.getElementById('msg');
+        let mask = '';
+        let mask_data = [];
+        var map_name; //地圖名稱
+
+        var myLatLng = {}; //自己的座標
+        var lng = Number();//緯度
+        var lat = Number(); //經度
+        var name = String();//店名
+        var left = Number();//剩餘數量
+
+        window.onload = function () {
+            let xhr = new XMLHttpRequest;
+            xhr.onload = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    mask = JSON.parse(this.responseText);
+                    mask_data = mask.features;
+                    initMap();
+                    BuildMarker();
+                    // msg.innerHTML='';
+
+                } else {
+                    msg.textContent = '發生錯誤，HTTP response代碼：' + xhr.status;
+                }
+            }
+            xhr.open("GET", "http://127.0.0.1:5500/MaskMap/MaskData.json");
+            xhr.send();
+        }
+
+        var infoWindow;
+
+        function initMap() {
+            // 中華大學座標
+            myLatLng = { lat: 24.759932, lng: 120.952040 };//lat 緯度 、 lng 經度
+
+            //初始地圖位置
+            map_name = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15, //縮放倍率
+                center: { lat: myLatLng.lat, lng: myLatLng.lng }
+            });
+
+            selfLocation();
+        }
+
+        function selfLocation() {
+            infoWindow = new google.maps.InfoWindow;
+
+            // 找到自己的位置
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    //自己的位置
+                    myLatLng = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+
+                    infoWindow.setPosition(myLatLng);
+                    infoWindow.setContent('Location found.');
+                    infoWindow.open(map_name);
+                    map_name.setCenter(myLatLng);
+                    init_marker('我在這裡!');
+                }, function () {
+                    handleLocationError(true, infoWindow, map_name.getCenter());
+                });
+            }
+            // 沒找到自己的位置
+            else {
+                // Browser doesn't support Geolocation
+                handleLocationError(false, infoWindow, map_name.getCenter());
+                init_marker('中華大學');
+            }
+        }
+
+        function init_marker(title) {
+            var marker = new google.maps.Marker({ //圖釘
+                position: myLatLng,
+                map: map_name,
+                title: title
+            });
+        }
+
+
+        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+            infoWindow.setPosition(pos);
+            infoWindow.setContent(browserHasGeolocation ?
+                'Error: The Geolocation service failed.' :
+                'Error: Your browser doesn\'t support geolocation.');
+            infoWindow.open(map);
+        }
+
+        //讀json檔創建Marker
+        function BuildMarker() {
+            for (var i = 0; i < mask_data.length; i++) {
+                lng = mask_data[i].geometry.coordinates[0]; //經度
+                lat = mask_data[i].geometry.coordinates[1]; //緯度
+                name = mask_data[i].properties.name;
+                left = mask_data[i].properties.masksLeft;
+                Marker(lng, lat, name, left);
+            }
+        }
+
+        function Marker(lng, lat, name, left) {
+            var myLatLng = { lat: lat, lng: lng };
+            var marker = new google.maps.Marker({ //圖釘
+                position: myLatLng,
+                map: map_name,
+                icon: { url: icon_update(left), scaleSize: new google.maps.Size(1, 1) },
+                title: name + '，剩餘數量: ' + left
+            });
+        }
+
+        //不同狀況使用不同座標
+        function icon_update(left) {
+            if (left > 0) {
+                return "https://img.icons8.com/color/48/000000/smiling.png";
+            }
+            else {
+                return "https://img.icons8.com/emoji/48/000000/tired-face.png";
+            }
+        }
+
+
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlKWP4uWjQIR3WDAWLAu6rUhBfc3_ppag&callback=initMap"
+        async defer></script>
+</body>
+
+</html>
