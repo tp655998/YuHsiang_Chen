@@ -18,7 +18,9 @@
     <title>Hello, world!</title>
 
     <style>
-
+        #sku,#price,#storage {
+            cursor: pointer;
+        }
     </style>
 
 </head>
@@ -42,10 +44,10 @@
         let tbody = document.createElement('tbody');
         table.appendChild(tbody);
 
-        var sortType = '';
-        var ifDescending = false;
-        //遞減 (high to low)
-        //遞增 (low to high)
+        var ClickRecord = ''; //紀錄上次點選的項目
+
+        var Desc = false;  //Desc = true 降序 (high to low) 箭頭向下
+        //Desc = false 升序 (low to high) 箭頭向上 (預設)
 
         let ipad = '';
         let ipad_data = [];
@@ -68,12 +70,15 @@
             // getOwnPropertyNames: returns an array of all properties
             // 取得key只需要讀第一筆資料即可
             let theadArray = Object.getOwnPropertyNames(ipad_data[0]);
-            theadArray.forEach(item => {
+            theadArray.forEach(function(item, index){
                 let th = document.createElement('th');
                 th.setAttribute('scope', 'col'); //scope
                 th.classList.add('border');
-                th.innerHTML = item.toUpperCase() + ' ' + '<i class="fas fa-sort"></i>';
-                th.setAttribute('onclick', 'sorting(this)');
+                th.innerHTML = item.toUpperCase();
+                if(index<3){
+                    th.innerHTML+=(' ' + '<i class="fas fa-sort"></i>');
+                    th.setAttribute('onclick', 'sorting(this)');
+                }
                 th.setAttribute('id', item);
                 tr.appendChild(th);
             });
@@ -95,62 +100,78 @@
         }
 
         function sorting(item) {
-            let key = item.id;//thead項目
-            // console.log('key: ' + key);
+            let key = item.id;//th項目的id = key
+            console.log(key);
 
-            SortType(key);
+            sort_type(key);//判斷排序方式
             ipad_data.sort(function (a, b) {
-                if (!ifDescending) {
-                    if (a[key] >= b[key]) {
-                        return 1;
-                    } else {
-                        return -1;
+                if (!Desc) { //low to high
+                console.log(typeof(a[key]));
+                
+                    if (typeof a[key] == 'number') {
+                        return a[key] - b[key];
                     }
-                    return a[key] - b[key];
+                    else if (typeof a[key] == 'string' && a[key].includes('GB')) {
+                        return a[key].replace('GB', '') - b[key].replace('GB', '');
+                    }
+                    else if(typeof a[key] == 'string'){
+                        if (a[key] >= b[key]) {
+                            return 1;
+                        }
+                        else {
+                            return -1;
+                        }
+                    }
                 }
-                else {
-                    if (a[key] <= b[key]) {
-                        return 1;
-                    } else {
-                        return -1;
+                else { // high to low
+                    console.log(typeof(a[key]));
+                    if (typeof a[key] == 'number') {
+                        return b[key] - a[key];
                     }
-                    return b[key] - a[key];
+                    else if (typeof a[key] == 'string' && a[key].includes('GB')) {
+                        return b[key].replace('GB', '') - a[key].replace('GB', '');
+                    }
+                    else if(typeof a[key] == 'string'){
+                        if (a[key] <= b[key]) {
+                            return 1;
+                        } else {
+                            return -1;
+                        }
+                    }
                 }
             });
-            changeIcons(item);
-            refresh();
+            changeIcons(item);//更換icon
+            refresh(); //重新載入tbody
         }
 
-        function SortType(key) {
-            if (key != sortType) {  //空字串或選不同項目
-                console.log('sortType before: ' + sortType);
-                sortType = key;
-                console.log('sortType after: ' + sortType);
-                ifDescending = false;//high to low
+        function sort_type(item) {
+            if (item != ClickRecord) {  //空字串或選不同項目
+                ClickRecord = item;
+                console.log(ClickRecord);
+                
+                Desc = false;//high to low
             } else { //重複按同一個項目
-                ifDescending = !ifDescending;//相反
+                Desc = !Desc;//相反
             }
         }
 
         function changeIcons(item) {
-            resetAllIcons();
+            resetAllIcons(); //icon重設為預設
 
             let i = document.querySelector(`th#${item.id}>i`)
-            if (ifDescending) {
-                i.setAttribute('class', 'fas fa-sort-down');
+            if (Desc) {
+                i.setAttribute('class', 'fas fa-sort-down'); //Desc = true = 降序 = high to low 箭頭向下
             } else {
-                i.setAttribute('class', 'fas fa-sort-up');
+                i.setAttribute('class', 'fas fa-sort-up'); //Desc = false = 升序 = low to high 箭頭向上
             }
         }
-
 
         function resetAllIcons() {
             let i = document.querySelectorAll('th>i');
-            for (let cl of i) {
-                cl.setAttribute('class', 'fas fa-sort');
+            for (let item of i) {
+                item.setAttribute('class', 'fas fa-sort');
             }
         }
-
 
         function refresh() {
             tbody.innerHTML = '';
