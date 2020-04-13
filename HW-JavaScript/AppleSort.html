@@ -97,7 +97,7 @@
 
         function sorting(item) {
             let key = item.id;//thead項目
-            console.log('key: ' + key);
+            // console.log('key: ' + key);
 
             SortType(key);
             ipad_data.sort(function (a, b) {
@@ -123,7 +123,7 @@
             }
         });
             changeIcons(item);
-            replaceInfo();
+            refresh();
         }
 
         function SortType(key) {
@@ -157,7 +157,7 @@
         }
 
 
-        function replaceInfo() {
+        function refresh() {
             tbody.innerHTML = '';
             AddTbody(ipad_data);
         }
