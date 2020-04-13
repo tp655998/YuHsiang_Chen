@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+        integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+
+    <style>
+
+    </style>
+
+</head>
+
+<body>
+
+    <script>
+        body = document.querySelector('body');
+        // 設定 table class
+        table = document.createElement('table');
+        table.classList.add('table');
+        table.classList.add('table-striped'); //條紋
+        table.classList.add('table-secondary');//灰色
+        body.appendChild(table);
+        // 設定 thead class
+        let thead = document.createElement('thead');
+        thead.classList.add('bg-dark');//背景黑色
+        thead.classList.add('text-light');//文字白色
+        table.appendChild(thead);
+        // 設定 tbody class
+        let tbody = document.createElement('tbody');
+        table.appendChild(tbody);
+
+        var sortType = '';
+        var ifDescending = false;
+        //遞減 (high to low)
+        //遞增 (low to high)
+
+        let ipad = '';
+        let ipad_data = [];
+        window.onload = function requestJSON() {
+            let xhr = new XMLHttpRequest();
+            xhr.onload = function () {
+                ipad = JSON.parse(this.responseText);
+                ipad_data = ipad.products;
+                AddThead(ipad_data);
+                AddTbody(ipad_data);
+            }
+            xhr.open("GET", 'https://bs-frontend.azurewebsites.net/api/Apple/IPad');
+            xhr.send();
+        }
+
+        function AddThead(ipad_data) {
+            let tr = document.createElement('tr');
+            thead.appendChild(tr);
+
+            // getOwnPropertyNames: returns an array of all properties
+            // 取得key只需要讀第一筆資料即可
+            let theadArray = Object.getOwnPropertyNames(ipad_data[0]);
+            theadArray.forEach(item => {
+                let th = document.createElement('th');
+                th.setAttribute('scope', 'col'); //scope
+                th.classList.add('border');
+                th.innerHTML = item.toUpperCase() + ' ' + '<i class="fas fa-sort"></i>';
+                th.setAttribute('onclick', 'sorting(this)');
+                th.setAttribute('id', item);
+                tr.appendChild(th);
+            });
+        }
+
+        function AddTbody(ipad_data) {
+            for (let i in ipad_data) {
+                //tr
+                let tr = document.createElement('tr');
+                tbody.appendChild(tr);
+                //td*n
+                for (let j in ipad_data[i]) {
+                    let td = document.createElement('td');
+                    td.classList.add('border');
+                    td.innerText = ipad_data[i][j];
+                    tr.appendChild(td);
+                }
+
+            }
+        }
+
+        function sorting(item) {
+            let key = item.id;//thead項目
+            console.log('key: ' + key);
+
+            SortType(key);
+            ipad_data.sort(function (a, b) {
+            if (!ifDescending) {
+                if (typeof (a[key]) == 'string') {
+                    if (a[key] >= b[key]) {
+                        return 1;
+                    } else {
+                        return -1;
+                    }
+                }
+                return a[key] - b[key];
+            }
+            else {
+                if (typeof (key) == 'string') {
+                    if (a[key] <= b[key]) {
+                        return 1;
+                    } else {
+                        return -1;
+                    }
+                }
+                return b[key] - a[key];
+            }
+        });
+            changeIcons(item);
+            replaceInfo();
+        }
+
+        function SortType(key) {
+            if (key != sortType) {  //空字串或選不同項目
+                console.log('sortType before: ' + sortType);
+                sortType = key;
+                console.log('sortType after: ' + sortType);
+                ifDescending = false;//high to low
+            } else { //重複按同一個項目
+                ifDescending = !ifDescending;//相反
+            }
+        }
+
+        function changeIcons(item) {
+            resetAllIcons();
+
+            let i = document.querySelector(`th#${item.id}>i`)
+            if (ifDescending) {
+                i.setAttribute('class', 'fas fa-sort-down');
+            } else {
+                i.setAttribute('class', 'fas fa-sort-up');
+            }
+        }
+
+
+        function resetAllIcons() {
+            let i = document.querySelectorAll('th>i');
+            for (let cl of i) {
+                cl.setAttribute('class', 'fas fa-sort');
+            }
+        }
+
+
+        function replaceInfo() {
+            tbody.innerHTML = '';
+            AddTbody(ipad_data);
+        }
+
+    </script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/95fe5e2d81.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
