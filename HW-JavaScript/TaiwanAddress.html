@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <!-- fontawesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+    integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+
+  <title>Hello, world!</title>
+
+  <style>
+
+  </style>
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <!-- 標題 -->
+      <div class="col-12">
+        <div class="text-center">
+          <h1>Taiwan Address </h1>
+        </div>
+      </div>
+      <!-- 內容 -->
+      <div class="col-6">
+        <table class="table table-bordered table-hover table-striped">
+          <thead>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
+  <template id="templateTitle">
+    <tr>
+      <th>城市</th>
+      <th>鄉/鎮/區</th>
+      <th>郵遞區號</th>
+    </tr>
+  </template>
+  <template id="templateRow">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </template>
+
+  <script>
+    var newData = [];
+    var data;
+    window.onload = function () {
+      requestJSON();
+    }
+
+    function requestJSON() {
+      let xhr = new XMLHttpRequest();
+      xhr.onload = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+
+          let full_data = JSON.parse(this.responseText);
+
+          full_data.forEach(item => {
+            City_Data(item);
+          });
+
+          addThead();
+
+          newData.forEach((item) => {
+            addTbody(Object.values(item));
+          })
+        }
+
+      };
+      xhr.open("GET", "https://raw.githubusercontent.com/tp655998/YuHsiang_Chen/master/FileStorage/TaiwanAddress.json");
+      xhr.send();
+    }
+
+    function City_Data(item) {
+      //新的資料格式
+      data = {
+        City: '', //城市
+        Districts: [] //[市區,郵遞區號]
+      };
+
+      Object.values(item).forEach((item, index) => {
+        // 篩選出 City 
+        if (typeof item == 'string' && index == 0) {  // CityName, index = 0
+          data.City = item;
+        }
+
+        // 篩選出 Districts 
+        else if (Array.isArray(item) && index == 2) { // AreaList, index = 2  
+          item.forEach((item) => { //item = AreaList裡的元素
+            District_Data(item);
+          });
+        }
+      });
+      newData.push(data);
+    }
+
+    function District_Data(item) {
+      //暫存篩選出的AreaName、Zipcode
+      let AreaList = {
+        AreaName: '',
+        ZipCode: ''
+      };
+
+      Object.values(item).forEach((item, index) => {
+        if (index == 0) { //ZipCode, index = 0
+          AreaList.ZipCode = item;
+        }
+        else if (index == 1) { //AreaName, index = 1
+          AreaList.AreaName = item;
+        }
+      });
+
+      data.Districts.push(AreaList);
+    }
+
+
+    let thead = document.querySelector('thead');
+    let tbody = document.querySelector('tbody');
+
+    function addThead() {
+      //取得樣板
+      let templateTitle = document.getElementById('templateTitle');
+      let cloneContent = templateTitle.content.cloneNode(true);
+      thead.appendChild(templateTitle.content)
+    }
+
+    function addTbody(item) {
+      let templateRow = document.getElementById('templateRow');
+      // var t = Object.values(item)
+      item[1].forEach((i) => {
+        let cloneContent = templateRow.content.cloneNode(true);
+        let tds = cloneContent.querySelectorAll('td');
+        tds[0].textContent = item[0];
+        tds[1].textContent = i.AreaName;
+        tds[2].textContent = i.ZipCode;
+        tbody.appendChild(cloneContent);
+      })
+
+    }
+
+  </script>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+
+  <!-- fontawesome -->
+  <script src="https://kit.fontawesome.com/95fe5e2d81.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
