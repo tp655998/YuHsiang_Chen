@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>寶可夢圖鑑列表</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <h1>寶可夢圖鑑列表</h1>
+    <button id='addone' onclick="Add_Pokemon()">載入寶可夢</button>
+    <button id='addall' onclick="Add_AllPokemon()">載入寶可夢圖鑑</button>
+    <button id='removeone' onclick="Remove_Pokemon()">移除寶可夢</button>
+    <button id='removeall' onclick="Remove_AllPokemon()">全部清除</button>
+
+    <div class="container col-10" id="container">
+
+    </div>
+
+    <script>
+        var container = $('#container');
+        var counter = 0;
+
+        window.onload = appendPokemon();
+
+        function appendPokemon() {
+            counter = 1;
+            set();
+        }
+
+
+        function Add_Pokemon() {
+            counter += 1;
+            set();
+        }
+
+        function Add_AllPokemon() {
+            while (counter < 890) {
+                counter += 1;
+                set();
+            }
+        }
+
+        function Remove_Pokemon() {
+            if (counter > 0) {
+                counter -= 1;
+            }
+            container.children().last().remove();
+        }
+
+        function Remove_AllPokemon() {
+            container.children().remove();
+            counter = 0;
+        }
+
+        function set() {
+            let fileName = counter.toString().padStart(3, "0");
+            let pathFile = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${fileName}.png`;
+            container.append(`<img src=${pathFile}>`);
+
+            $('img').click(function () {
+                $(this).remove();
+            });
+        }
+
+    </script>
+</body>
+
+</html>
