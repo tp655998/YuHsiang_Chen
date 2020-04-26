@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+        integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <title>LOL</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        body {
+            background-color:rgb(43, 95, 117);
+            text-align: center;
+        }
+
+        h1 {
+            color: #fff;
+            font-weight: bolder;
+        }
+
+        h5 {
+            color: #fff;
+            font-size: 1.5rem;
+        }
+
+        .role{
+            transform: scale(1, 1);
+			transition: .3s ease-out;
+        }
+        .role:hover{
+            cursor: pointer;
+            transform: scale(1.2, 1.2);
+			z-index: 5;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <h1 class="text-center my-5">League of Legends</h1>
+        <div class="row" id="Guide">
+            
+        </div>
+    </div>
+
+    <!-- 角色資訊 -->
+    <div class="modal fade" id="Status" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <!-- 角色名稱 -->
+                    <h4 class="modal-title" id="roleName">Role Name</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!-- 角色資訊 -->
+                <div class="modal-body text-left" id="roleInfo">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        let Guid = $('#Guide'); //圖鑑
+        let roleName = document.getElementById('roleName'); //角色名稱
+        let roleInfo = document.getElementById('roleInfo'); //角色資訊
+
+        $.ajax({
+            type: 'Get',
+            url: 'https://raw.githubusercontent.com/Judyjou/js/master/lol.json',
+            dataType: 'json',
+            success: function (response) {
+                for (let role = 0; role < response.length; role++) {
+
+                    let div = document.createElement('div');
+                    div.classList.add('mt-5', 'col-4', 'col-md-2', 'role');
+
+                    // 角色名稱
+                    let h5 = document.createElement('h5');
+                    h5.classList.add('mb-3');
+                    h5.textContent = response[role].name;
+                    div.appendChild(h5);
+
+                    for (let pics in response[role]) {
+                        if (pics == 'icon') {
+
+                            // 圖片
+                            let img = document.createElement('img');
+                            img.src = response[role]['icon'];
+                            img.classList.add('w-100','d-block');
+                            div.appendChild(img);
+                        
+                            // 角色資訊
+                            img.addEventListener('click', () => {
+                                // 顯示狀態視窗
+                                $('#Status').modal('toggle'); 
+                                
+                                //角色名稱
+                                roleName.textContent = response[role].name;
+                                for (let element in response[role].status) {
+                                    let _p = document.createElement('p');
+                                    
+                                    _p.innerText = (`${element.toUpperCase()}:${response[role].status[element]}`);
+                                    roleInfo.appendChild(_p);
+                                }
+                            })
+                        }
+                    }
+                    Guide.appendChild(div);
+                }
+            }, error: function (reaponse) {
+            }
+        });
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/95fe5e2d81.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
