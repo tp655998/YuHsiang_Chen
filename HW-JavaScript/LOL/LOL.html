@@ -59,8 +59,8 @@
 
     <div class="container">
         <h1 class="text-center my-5">League of Legends</h1>
+        <!-- 角色圖鑑 -->
         <div class="row" id="Guide">
-            
         </div>
     </div>
 
@@ -89,12 +89,10 @@
     <script>
 
         let Guid = $('#Guide'); //圖鑑
-        let roleName = document.getElementById('roleName'); //角色名稱
-        let roleInfo = document.getElementById('roleInfo'); //角色資訊
 
         $.ajax({
             type: 'Get',
-            url: 'https://raw.githubusercontent.com/Judyjou/js/master/lol.json',
+            url: 'https://raw.githubusercontent.com/tp655998/YuHsiang_Chen/master/FileStorage/LOL.json',
             dataType: 'json',
             success: function (response) {
                 for (let role = 0; role < response.length; role++) {
@@ -108,10 +106,10 @@
                     h5.textContent = response[role].name;
                     div.appendChild(h5);
 
-                    for (let pics in response[role]) {
-                        if (pics == 'icon') {
+                    for (let pic in response[role]) {
+                        if (pic == 'icon') {
 
-                            // 圖片
+                            // picture
                             let img = document.createElement('img');
                             img.src = response[role]['icon'];
                             img.classList.add('w-100','d-block');
@@ -123,12 +121,11 @@
                                 $('#Status').modal('toggle'); 
                                 
                                 //角色名稱
-                                roleName.textContent = response[role].name;
+                                $('#roleName').textContent = response[role].name;
+                                
+                                //角色屬性
                                 for (let element in response[role].status) {
-                                    let _p = document.createElement('p');
-                                    
-                                    _p.innerText = (`${element.toUpperCase()}:${response[role].status[element]}`);
-                                    roleInfo.appendChild(_p);
+                                    $('#roleInfo').append(`<p>${element.toUpperCase()}:${response[role].status[element]}</p>`);
                                 }
                             })
                         }
