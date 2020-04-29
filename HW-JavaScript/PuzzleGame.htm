@@ -1,0 +1,302 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	<!-- fontawesome -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+		integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<title>Puzzle Game</title>
+
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			list-style-type: none;
+		}
+
+		header {
+			width: 100%;
+			text-align: center;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-around;
+		}
+
+		main {
+			width: 100%;
+			text-align: center;
+			display: flex;
+		}
+
+		section {
+			min-width: 500px;
+		}
+
+		table {
+			min-width: 500px;
+		}
+
+		thead {
+			width: 100%;
+		}
+
+		td {
+			padding: 0;
+			margin: 0;
+			margin-bottom: 1px;
+			margin-right: 1px;
+			display: block;
+		}
+
+		tbody {
+			width: 480px;
+			height: 480px;
+			justify-content: center;
+		}
+
+		.PicCell {
+			/* width: 120px;
+			height: 120px; */
+			float: left;
+			overflow: hidden;
+			transform: scale(1, 1);
+			transition: .3s ease-out;
+			vertical-align: top;
+		}
+
+		.PicCell:hover {
+			filter: drop-shadow(12px 12px 7px #000);
+			transform: scale(1.2, 1.2);
+			z-index: 5;
+		}
+	</style>
+
+</head>
+
+<body>
+
+	<div class="container" id="container">
+		<header class="w-100 d-block justify-content-around">
+			<h1>Puzzle</h1>
+			<button onclick="ReStart()">ReStart!</button>
+			<!-- <button onclick="Change()">Change!</button> -->
+			<div class="input-group mb-3">
+				<select class="custom-select" id="inputGroupSelect02">
+					<option selected>Choose...</option>
+					<option value="2">2x2</option>
+					<option value="3">3x3</option>
+					<option value="4">4x4</option>
+					<option value="6">6x6</option>
+				</select>
+				<div class="input-group-append">
+					<label class="input-group-text" for="inputGroupSelect02">難度選擇</label>
+				</div>
+			</div>
+		</header>
+		<main>
+			<section class="col-6">
+				<h3>Original</h3>
+			</section>
+
+			<table>
+				<thead>
+					<tr>
+						<td>
+							<h3>Try it!</h3>
+						</td>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+
+		</main>
+	</div>
+
+	<script>
+		var img = "https://picsum.photos/480/480/?random$";
+		var coordinate = {};	//儲存每張圖片的座標
+		var n = 4;
+		let select = document.getElementById('inputGroupSelect02');
+		var isStart = false;
+
+		window.onload = Awake();
+
+		function Awake() {
+			Origin();
+			Generate();
+			ReStart();
+		}
+
+		// function Change() {
+		// 	var random = Math.floor(Math.random() * 10);
+		// 	console.log(random);
+		// 	img = `https://picsum.photos/480/480/?random=${random}`;
+		// 	// img = "https://picsum.photos/480/480/?random=1";
+		// 	console.log(random);
+		// 	Awake();
+		// 	ReStart();
+		// }
+
+		select.addEventListener('change', (event) => {
+			n = `${event.target.value}`;
+			// console.log(n);
+			Generate();
+			ReStart();
+		});
+
+		function Origin() {
+			$("section").append(`<img src=${img} alt="">`);
+		}
+
+		function Generate() {
+			document.querySelector('tbody').innerHTML = '';
+			//填入16張圖
+			for (var i = 0; i < n * n; i++) {
+
+				var row = parseInt(i / n); //i/4 => row0:0~3, row1:4~7, row2:8~11, row3:12~15
+				var col = i % n; //col0: 0、4、8、12, col1: 1、5、9、13, col2: 2、6、10、14, col3: 3、7、11、15
+
+				if (col == 0) { //4個為一列
+					$('tbody').append(`<tr id="tr${row}"></tr>`);
+					// var tr = $(`#tr${row}`)
+				}
+
+				$(`#tr${row}`).append(`<td class='PicCell' width= ${480 / n}px; height= ${480 / n}px; id='Pic${i}'><img src='https://picsum.photos/480/480/?random$' /></td>`);
+
+				// picture size = 480*480
+				// 4 * 4 puzzle => 1 piece = 120 * 120;
+				// 透過margine調整圖片顯示的部分(使用col、row 做運算)
+				$(`#Pic${i} img`).css("margin-left", (col * -(480 / n))).css("margin-top", (row * -(480 / n)));
+
+				//第i個換成第row列,第col行
+				coordinate[i] = { row: row, col: col };
+			}
+			//將左上角圖塊移除
+			// $("#Pic0 img").remove();
+			$("#Pic0 img").css("opacity", 0);
+
+			//圖片點選動作(class皆為PicCell)
+			$(".PicCell").click(function () {
+
+				var cells = $(".PicCell"); //選擇所有的td
+				var target = cells.index(this);//我點的這張圖片
+
+				var around = detect(target); //取得pool[]
+
+				// 如果我點到的圖片的周圍有空白的圖片就交換位置 (用while跑一遍pool裡面存的周圍圖片的index) 
+				while (around.length > 0) {
+
+					var aroundIndex = around.pop(); //從pool中pop最後一個出來 aroundIndex=這個數字(index值)
+
+					//eq(index) 指定特定index的元素
+					if (cells.eq(aroundIndex).attr("id") == "Pic0") //如果是空白格(id=Pic0)，就交換位子
+					{
+						//讓aroundindex保持比target大的狀態
+						if (target > aroundIndex) {
+							var temp = aroundIndex;
+							aroundIndex = target;
+							target = temp;
+						}
+
+						var front = cells.eq(target);//較小
+						var behind = cells.eq(aroundIndex);//較大
+						var behindPrev = behind.prev(); //取得該元素的前一個元素
+						var behindNext = behind.next(); //取得該元素的後一個元素
+
+						//左右對調 (index差距為1)
+						if (Math.abs(target - aroundIndex) == 1)
+							behind.after(front);//在behind的後面插入front
+						else //上下對調
+						{
+							front.after(behind);
+							//aroundindex或target任何一個在col 0，使用behindPre就會插到不同tr去
+							//=>改用next
+							if (aroundIndex % n == 0) {
+								behindNext.before(front);
+							}
+							else {
+								behindPrev.after(front);
+							}
+						}
+						break;
+					}
+				}
+				if(!isStart){
+					PassCheck();
+				}
+			});
+		}
+		//取得四周相鄰的位置
+		function detect(i) {
+			var pool = [];
+			var row = coordinate[i].row, col = coordinate[i].col;
+			//把目標四周的拼圖push到pool  (算出該拼圖的id)
+			if (row > 0) //上
+				pool.push((row - 1) * n + col);
+			if (row < n) //下
+				pool.push((row + 1) * n + col);
+			if (col > 0) //左
+				pool.push(i - 1);
+			if (col < n) //右
+				pool.push(i + 1);
+			return pool;
+		}
+		function ReStart() {
+			isStart = true;
+			for (var i = 0; i < 500; i++) {
+				var cells = $(".PicCell");
+				//找出空格所在位置，並取得其相鄰圖塊
+				var around = detect(cells.index($("#Pic0")));
+				cells.eq(around[ //由空格的相鄰圖塊擇一挪動
+					parseInt(Math.random() * around.length)
+				]).click();
+			}
+			isStart = false;
+		};
+
+		function PassCheck() {
+			var cells = $(".PicCell");
+			for (let i = 0; i < n*n; i++) {
+				if (cells.eq(i).attr("id") != `Pic${i}`) {
+					break;
+				}
+				else if (i == (n*n)-1) {
+					$("#Pic0 img").css("opacity", 1);
+					alert("You Win!");
+				}
+			}
+		}
+
+
+	</script>
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+		crossorigin="anonymous"></script>
+
+	<!-- fontawesome -->
+	<script src="https://kit.fontawesome.com/95fe5e2d81.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
