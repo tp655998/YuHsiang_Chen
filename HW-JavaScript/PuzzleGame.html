@@ -51,6 +51,20 @@
 		thead {
 			width: 100%;
 		}
+		#setting{
+			width: 100%;
+			padding: 0 10%;
+		}
+		#ReStart{
+			background-color: aliceblue;
+			border: 1px solid #ccc;
+			font-weight: bolder;
+			width: 10%;
+			text-align: center;
+		}
+		#ReStart:hover{
+			background-color: antiquewhite;
+		}
 
 		td {
 			padding: 0;
@@ -90,9 +104,11 @@
 	<div class="container" id="container">
 		<header class="w-100 d-block justify-content-around">
 			<h1>Puzzle</h1>
-			<button onclick="ReStart()">ReStart!</button>
 			<!-- <button onclick="Change()">Change!</button> -->
-			<div class="input-group mb-3">
+			<div class="input-group mb-3" id="setting">
+				<div class="input-group-append">
+					<label class="input-group-text" for="inputGroupSelect02">難度選擇</label>
+				</div>
 				<select class="custom-select" id="inputGroupSelect02">
 					<option selected>Choose...</option>
 					<option value="2">2x2</option>
@@ -100,9 +116,7 @@
 					<option value="4">4x4</option>
 					<option value="6">6x6</option>
 				</select>
-				<div class="input-group-append">
-					<label class="input-group-text" for="inputGroupSelect02">難度選擇</label>
-				</div>
+				<button onclick="ReStart()" id="ReStart"> <span>ReStart!</span> </button>
 			</div>
 		</header>
 		<main>
@@ -264,6 +278,7 @@
 					parseInt(Math.random() * around.length)
 				]).click();
 			}
+			$("#Pic0 img").css("opacity", 0);
 			isStart = false;
 		};
 
