@@ -18,37 +18,54 @@
   <title>Build School 作品集</title>
 
   <style>
-    *{
-        margin: 0;
-        padding: 0;
-        list-style-type: none;
+    * {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
     }
-    body{
+
+    body {
       background-color: #333;
     }
-    .container{
+
+    .container {
       background-color: #e9ddce;
-      box-shadow: 1rem 1rem 1rem #000,1rem 1rem 1rem #000;
+      box-shadow: 1rem 1rem 1rem #000, 1rem 1rem 1rem #000;
     }
-    header h1{
+
+    .row {
+      position: relative;
+
+    }
+
+    header {}
+
+    header h1 {
+      position: sticky;
+      top: 0;
+      left: 0;
       text-align: center;
       margin: 3rem 0;
       padding: 1rem 0;
-      box-shadow: 1rem 1rem 1rem #333,0 -1rem 3rem #fff;
+      box-shadow: 1rem 1rem 1rem #333, 0 -1rem 3rem #fff;
       background-color: antiquewhite;
     }
-    header span{
+
+    header span {
       font-family: 'Microsoft JhengHei';
     }
-    .Work{
+
+    .Work {
       margin-bottom: 2rem;
       box-shadow: 1rem 1rem 1rem #333;
     }
-    .Work_iframe{
+
+    .Work_iframe {
       width: 100%;
       height: 50vh;
     }
-    .Work_Title{
+
+    .Work_Title {
       display: block;
       padding: 1rem;
       background-color: #000;
@@ -66,22 +83,26 @@
         <h1>Build School <span>作品集</span></h1>
       </header>
       <main class="col-12 col-md-10 mx-auto">
-        <div class="col-12 Work">
-          <a class="Work_Title" href="https://chenweb.azurewebsites.net/HW-JavaScript/PuzzleGame.html"> <i class="fa fa-external-link" aria-hidden="true"></i> 拼圖遊戲</a>
+        <!-- <div class="col-12 Work">
+          <a class="Work_Title" href="https://chenweb.azurewebsites.net/HW-JavaScript/PuzzleGame.html"> <i
+              class="fa fa-external-link" aria-hidden="true"></i> 拼圖遊戲</a>
           <iframe class="Work_iframe" src="https://chenweb.azurewebsites.net/HW-JavaScript/PuzzleGame.html"></iframe>
         </div>
         <div class="col-12 Work">
-          <a class="Work_Title" href="https://chenweb.azurewebsites.net/HW-JavaScript/calculator.html"><i class="fa fa-external-link" aria-hidden="true"></i> 計算機</a>
+          <a class="Work_Title" href="https://chenweb.azurewebsites.net/HW-JavaScript/calculator.html"><i
+              class="fa fa-external-link" aria-hidden="true"></i> 計算機</a>
           <iframe class="Work_iframe" src="https://chenweb.azurewebsites.net/HW-JavaScript/calculator.html"></iframe>
         </div>
         <div class="col-12 Work">
-          <a class="Work_Title" href="https://chenweb.azurewebsites.net/HW-JavaScript/Calendar.html"><i class="fa fa-external-link" aria-hidden="true"></i> 行事曆</a>
+          <a class="Work_Title" href="https://chenweb.azurewebsites.net/HW-JavaScript/Calendar.html"><i
+              class="fa fa-external-link" aria-hidden="true"></i> 行事曆</a>
           <iframe class="Work_iframe" src="https://chenweb.azurewebsites.net/HW-JavaScript/Calendar.html"></iframe>
         </div>
         <div class="col-12 Work">
-          <a class="Work_Title" href="https://chenweb.azurewebsites.net//HW(CSS)/TNGA/TNGA.html"><i class="fa fa-external-link" aria-hidden="true"></i> Toyota網站粗切</a>
-          <iframe class="Work_iframe" src="https://chenweb.azurewebsites.net//HW(CSS)/TNGA/TNGA.html"></iframe>
-        </div>
+          <a class="Work_Title" href="https://chenweb.azurewebsites.net/HW(CSS)/TNGA/TNGA.html"><i
+              class="fa fa-external-link" aria-hidden="true"></i> Toyota網站粗切</a>
+          <iframe class="Work_iframe" src="https://chenweb.azurewebsites.net/HW(CSS)/TNGA/TNGA.html"></iframe>
+        </div> -->
       </main>
       <footer>
 
@@ -104,6 +125,27 @@
 
   <!-- fontawesome -->
   <script src="https://kit.fontawesome.com/95fe5e2d81.js" crossorigin="anonymous"></script>
+  <script>
+    var Azure = "https://chenweb.azurewebsites.net/";
+
+    var link = new Array();
+    link[0] = "HW-JavaScript/PuzzleGame.html, 拼圖遊戲";
+    link[1] = "HW-JavaScript/calculator.html, 計算機";
+    link[2] = "HW-JavaScript/Calendar.html, 行事曆";
+    link[3] = "HW(CSS)/TNGA/TNGA.html, Toyota網站粗切";
+
+    window.onload = produce();
+
+    function produce() {
+      for (var i in link) {
+        var word = link[i].split(',');
+        $("main").append(`<div class='col-12 Work item${i}'>`);
+        $(`.item${i}`).append(`<a class='Work_Title' href=${Azure + word[0]}><i class='fa fa-external-link' aria-hidden='true'></i>${word[1]}</a>`);
+        $(`.item${i}`).append(`<iframe class='Work_iframe' src=${Azure + word[0]}></iframe>`);
+      }
+    }
+
+  </script>
 </body>
 
 </html>
