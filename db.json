@@ -5,27 +5,25 @@
       "title": "專案標題",
       "summary": "這是一個提案",
       "img_cover": "https://imgur.com/gallery/Z5T73zG",
-      "time": {
-        "start": "",
-        "end": ""
-      },
+      "time_start": "",
+      "time_end": "",
       "category": "",
       "target": "",
       "video": "",
       "img_video": "https://imgur.com/gallery/Z5T73zG",
+      "game_url":"",
       "content": "",
       "feedback_cards": [
         {
           "id": 1,
           "feedback_amount": "555454",
           "feedback_summary": "10000",
+          "feedback_cover": "",
           "transport_type": "",
-          "transport_time": "",
+          "delivery_time": "",
           "feedback_limit": "",
-          "activity_time": {
-            "start": "",
-            "end": ""
-          }
+          "time_start": "",
+          "time_end": ""
         }
       ],
       "principal": "",
@@ -38,8 +36,6 @@
       "resume": "",
       "fan_page": "",
       "website": ""
-    },{
-      "id":2
     }
   ]
 }
